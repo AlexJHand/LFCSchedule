@@ -19,32 +19,16 @@ app.get('/scrape', function (req, res) {
 
             $('.next-match').filter(function () {
                 var data = $(this);
-                // when = data.clone() // clones the element
-                //     .children() // selects the child
-                //     .remove() // removes the child
-                //     .end() // goes back to the element
-                //     .text(); // grabs the text
-                // data = $('.next-match').filter('.matchInfo');
                 when = data.find("p").first().text()
-                // when = data.find("p").eq(1).text()
 
                 when = when.trim();
+
+                team1 = data.find("img").eq(0).attr("title");
+                team2 = data.find("img").eq(1).attr("title");
                 json.when = when;
+                json.team1 = team1;
+                json.team2 = team2;
             });
-
-            // $('#titleYear').filter(function () {
-            //     var data = $(this);
-            //     release = data.children().first().text();
-            //     json.release = release;
-            // })
-
-            // $('.ratingValue').filter(function () {
-            //     var data = $(this);
-
-            //     // rating = data.text();
-            //     rating = data.children().text();
-            //     json.rating = rating;
-            // })
         }
 
         fs.writeFile('output.json', JSON.stringify(json, null, 4), function (err) {
