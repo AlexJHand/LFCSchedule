@@ -14,7 +14,8 @@ app.get('/scrape', function (req, res) {
             var json = {
                 when: "",
                 team1: "",
-                team2: ""
+                team2: "",
+                competition: ""
             };
 
             $('.next-match').filter(function () {
@@ -25,9 +26,11 @@ app.get('/scrape', function (req, res) {
 
                 team1 = data.find("img").eq(0).attr("title");
                 team2 = data.find("img").eq(1).attr("title");
+                competition = data.find(".comp-logo").eq(0).attr("title");
                 json.when = when;
                 json.team1 = team1;
                 json.team2 = team2;
+                json.competition = competition;
             });
         }
 
