@@ -1,8 +1,24 @@
+//Requires
 const express = require('express');
 const fs = require('fs');
 const request = require('request');
 const cheerio = require('cheerio');
 const app = express();
+const daylightJSON = require('./daylight-savings.json');
+const britishSummerJSON = require('./british-summer-time.json');
+
+console.log('daylightJSON', daylightJSON);
+console.log('britishSummerJSON', britishSummerJSON);
+
+// Classes
+class JsonClass {
+    constructor(when, team1, team2, competition) {
+    this.when = when,
+    this.team1 = team1,
+    this.team2 = team2,
+    this.competition = competition}
+};
+
 
 // function convertToCentralTime(liverpoolDateTime) {
 convertToCentralTime = (liverpoolDateTime) => {
@@ -46,13 +62,6 @@ app.get('/scrape', function (req, res) {
     request(url, function (error, response, html) {
         if (!error) {
             let $ = cheerio.load(html);
-            let title, release, rating;
-            let json = {
-                when: "",
-                team1: "",
-                team2: "",
-                competition: ""
-            };
 
             $('.next-match').filter(function () {
                 let data = $(this);
@@ -64,20 +73,15 @@ app.get('/scrape', function (req, res) {
                 team1 = data.find("img").eq(0).attr("title");
                 team2 = data.find("img").eq(1).attr("title");
                 competition = data.find(".comp-logo").eq(0).attr("title");
-                json.when = when;
-                json.team1 = team1;
-                json.team2 = team2;
-                json.competition = competition;
+                
+                let newJson = new JsonClass(when, team1, team2, competition);
+
+                fs.writeFile('output.json', JSON.stringify(newJson, null, 4), function (err) {
+                    console.log('File successfully written - check your project directory for the output.json file.');
+                });
             });
         }
-
-        fs.writeFile('output.json', JSON.stringify(json, null, 4), function (err) {
-            console.log('File successfully written - check your project directory for the output.json file.');
-        });
     })
-
-
-
     res.send('Check your console.');
 });
 
