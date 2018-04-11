@@ -7,8 +7,8 @@ const app = express();
 const daylightJSON = require('./daylight-savings.json');
 const britishSummerJSON = require('./british-summer-time.json');
 
-console.log('daylightJSON', daylightJSON);
-console.log('britishSummerJSON', britishSummerJSON);
+// console.log('daylightJSON', daylightJSON);
+// console.log('britishSummerJSON', britishSummerJSON);
 
 // Classes
 class JsonClass {
@@ -18,6 +18,34 @@ class JsonClass {
     this.team2 = team2,
     this.competition = competition}
 };
+
+// function checkTimezones
+checkTimezones = (gameDate, gameMonth, gameYear) => {
+    let timeDifference = 0;
+    gameDate = parseInt(gameDate);
+    gameYear = parseInt(gameYear);
+    console.log('gameDate', gameDate);
+    console.log('gameMonth', gameMonth);
+    console.log('gameYear', gameYear);
+
+    const currentDaylight = daylightJSON.find(entry => entry.year === gameYear);
+    console.log('currentDaylight', currentDaylight);
+
+    const currentBritTime = britishSummerJSON.find(entry => entry.year === gameYear);
+    console.log('currentBritTime', currentBritTime);
+
+    if (gameMonth === 'March' && gameDate >= currentDaylight.startDay && gameDate < currentBritTime.startDay) {
+        console.log('Daylight savings but not British Summer time');
+        timeDifference = 7;
+    } else if ((gameMonth === 'October' && gameDate >= currentBritTime.endDay) || (gameMonth === 'November' && gameDate < currentDaylight.endDay)) {
+        console.log('Daylight savings but not British Summer time');
+        timeDifference = 7;
+    } else {
+        console.log('Standard time difference.');
+        timeDifference = 6
+    }
+    return timeDifference;
+}
 
 
 // function convertToCentralTime(liverpoolDateTime) {
@@ -29,10 +57,12 @@ convertToCentralTime = (liverpoolDateTime) => {
     console.log('liverpoolHours', liverpoolHours);
     console.log('liverpoolSplit', liverpoolSplit);
 
+    let timeDifference = checkTimezones(liverpoolSplit[liverpoolSplit.length - 3],liverpoolSplit[liverpoolSplit.length - 2],liverpoolSplit[liverpoolSplit.length-1]);
+
     liverpoolHours = liverpoolHours.split(":");
     console.log('liverpoolHours', liverpoolHours);
 
-    let convertedHours = parseInt(liverpoolHours) - 6;
+    let convertedHours = parseInt(liverpoolHours) - timeDifference;
     convertedHours = convertedHours.toString();
     console.log('convertedHours', convertedHours);
     

@@ -1,27 +1,37 @@
 [
     {
         "year": 2018,
-        "start": "25 March",
-        "end": "28 October"
+        "startDay": 25,
+        "startMonth": "March",
+        "endDay": 28,
+        "endMonth": "October"
     },
     {
         "year": 2019,
-        "start": "31 March",
-        "end": "27 October"
+        "startDay": 31,
+        "startMonth": "March",
+        "endDay": 27,
+        "endMonth": "October"
     },
     {
         "year": 2020,
-        "start": "29 March",
-        "end": "25 October"
+        "startDay": 29,
+        "startMonth": "March",
+        "endDay": 25,
+        "endMonth": "October"
     },
     {
         "year": 2021,
-        "start": "28 March",
-        "end": "31 October"
+        "startDay": 28,
+        "startMonth": "March",
+        "endDay": 31,
+        "endMonth": "October"
     },
     {
         "year": 2022,
-        "start": "27 March",
-        "end": "30 October"
+        "startDay": 27,
+        "startMonth": "March",
+        "endDay": 30,
+        "endMonth": "October"
     }
 ]
