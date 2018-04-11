@@ -1,17 +1,53 @@
-var express = require('express');
-var fs = require('fs');
-var request = require('request');
-var cheerio = require('cheerio');
-var app = express();
+const express = require('express');
+const fs = require('fs');
+const request = require('request');
+const cheerio = require('cheerio');
+const app = express();
+
+// function convertToCentralTime(liverpoolDateTime) {
+convertToCentralTime = (liverpoolDateTime) => {
+    let liverpoolSplit = liverpoolDateTime.split(" ");
+    console.log('liverpoolSplit', liverpoolSplit);
+
+    let liverpoolHours = liverpoolSplit.shift();
+    console.log('liverpoolHours', liverpoolHours);
+    console.log('liverpoolSplit', liverpoolSplit);
+
+    liverpoolHours = liverpoolHours.split(":");
+    console.log('liverpoolHours', liverpoolHours);
+
+    let convertedHours = parseInt(liverpoolHours) - 6;
+    convertedHours = convertedHours.toString();
+    console.log('convertedHours', convertedHours);
+    
+    liverpoolHours[0] = convertedHours;
+    console.log('liverpoolHours', liverpoolHours);
+    
+    let convertedTime = liverpoolHours.join(':');
+    console.log('convertedTime', convertedTime);
+
+    let convertedTimeArray = [convertedTime];
+    console.log('convertedTimeArray', convertedTimeArray);
+
+    for (let i = 0; i < liverpoolSplit.length; i++) {
+        convertedTimeArray.push(liverpoolSplit[i]);
+    }
+    console.log('convertedTimeArray', convertedTimeArray);
+
+    let centralTimeGameTime = convertedTimeArray.join(" ");
+    console.log('centralTimeGameTime', centralTimeGameTime);
+
+    return centralTimeGameTime;
+}
 
 app.get('/scrape', function (req, res) {
     url = 'http://www.liverpoolfc.com/match/2017-18/first-team/fixtures-and-results';
 
     request(url, function (error, response, html) {
         if (!error) {
-            var $ = cheerio.load(html);
-            var title, release, rating;
-            var json = {
+            let $ = cheerio.load(html);
+            let title, release, rating;
+            let json = {
                 when: "",
                 team1: "",
                 team2: "",
@@ -19,10 +55,11 @@ app.get('/scrape', function (req, res) {
             };
 
             $('.next-match').filter(function () {
-                var data = $(this);
+                let data = $(this);
                 when = data.find("p").first().text()
 
                 when = when.trim();
+                when = convertToCentralTime(when);
 
                 team1 = data.find("img").eq(0).attr("title");
                 team2 = data.find("img").eq(1).attr("title");
