@@ -7,8 +7,8 @@ const app = express();
 const daylightJSON = require('./daylight-savings.json');
 const britishSummerJSON = require('./british-summer-time.json');
 
-// console.log('daylightJSON', daylightJSON);
-// console.log('britishSummerJSON', britishSummerJSON);
+// Port
+const port = 4501;
 
 // Classes
 class JsonClass {
@@ -115,8 +115,10 @@ app.get('/scrape', function (req, res) {
     res.send('Check your console.');
 });
 
-app.listen(8081);
+// Listener
+app.listen(port, function () {
+    console.log('Listening on port', port);
+});
 
-console.log('The magic happens on port 8081');
-
+// Exports
 exports = module.exports = app;
