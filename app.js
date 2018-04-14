@@ -93,6 +93,7 @@ app.get('/scrape', function (req, res) {
         if (!error) {
             let $ = cheerio.load(html);
 
+            // First Match
             $('.next-match').filter(function () {
                 let data = $(this);
                 when = data.find("p").first().text()
@@ -104,9 +105,28 @@ app.get('/scrape', function (req, res) {
                 team2 = data.find("img").eq(1).attr("title");
                 competition = data.find(".comp-logo").eq(0).attr("title");
                 
-                let newJson = new JsonClass(when, team1, team2, competition);
+                let match1 = new JsonClass(when, team1, team2, competition);
 
-                fs.writeFile('output.json', JSON.stringify(newJson, null, 4), function (err) {
+                fs.writeFile('output.json', JSON.stringify(match1, null, 4), function (err) {
+                    console.log('File successfully written - check your project directory for the output.json file.');
+                });
+            });
+
+            // Second match
+            $('.next-match').filter(function () {
+                let data = $(this);
+                when = data.find("p").first().text()
+
+                when = when.trim();
+                when = convertToCentralTime(when);
+
+                team1 = data.find("img").eq(0).attr("title");
+                team2 = data.find("img").eq(1).attr("title");
+                competition = data.find(".comp-logo").eq(0).attr("title");
+
+                let match1 = new JsonClass(when, team1, team2, competition);
+
+                fs.writeFile('output.json', JSON.stringify(match1, null, 4), function (err) {
                     console.log('File successfully written - check your project directory for the output.json file.');
                 });
             });
