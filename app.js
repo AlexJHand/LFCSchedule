@@ -93,11 +93,11 @@ app.get('/scrape', function (req, res) {
         if (!error) {
             let $ = cheerio.load(html);
 
-            // First Match
+            // Match info
             $('.next-match').filter(function () {
                 let data = $(this);
                 let matches = []
-                
+
                 match1When = data.find("p").first().text()
 
                 match1When = match1When.trim();

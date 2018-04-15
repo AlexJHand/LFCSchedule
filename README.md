@@ -22,7 +22,6 @@ These instructions will get you a copy of the project up and running on your loc
 After the dependencies are installed, use npm start to start the server, which will run on port 4501.  
 
 ## Next Steps
-- Get info for second upcoming match
 - Get Premier League table info
 - Display on DOM
 
