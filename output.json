@@ -1,6 +1,14 @@
-{
-    "when": "6:30 Sat 21st April 2018",
-    "team1": "West Brom",
-    "team2": "Liverpool",
-    "competition": "Premier League"
-}
+[
+    {
+        "when": "6:30 Sat 21st April 2018",
+        "team1": "West Brom",
+        "team2": "Liverpool",
+        "competition": "Premier League"
+    },
+    {
+        "when": "13:45 Tue 24th April 2018",
+        "team1": "Liverpool",
+        "team2": "Roma",
+        "competition": "UEFA Champions League"
+    }
+]

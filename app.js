@@ -96,37 +96,31 @@ app.get('/scrape', function (req, res) {
             // First Match
             $('.next-match').filter(function () {
                 let data = $(this);
-                when = data.find("p").first().text()
-
-                when = when.trim();
-                when = convertToCentralTime(when);
-
-                team1 = data.find("img").eq(0).attr("title");
-                team2 = data.find("img").eq(1).attr("title");
-                competition = data.find(".comp-logo").eq(0).attr("title");
+                let matches = []
                 
-                let match1 = new JsonClass(when, team1, team2, competition);
+                match1When = data.find("p").first().text()
 
-                fs.writeFile('output.json', JSON.stringify(match1, null, 4), function (err) {
-                    console.log('File successfully written - check your project directory for the output.json file.');
-                });
-            });
+                match1When = match1When.trim();
+                match1When = convertToCentralTime(match1When);
 
-            // Second match
-            $('.next-match').filter(function () {
-                let data = $(this);
-                when = data.find("p").first().text()
+                match1Team1 = data.find("img").eq(0).attr("title");
+                match1Team2 = data.find("img").eq(1).attr("title");
+                match1Competition = data.find(".comp-logo").eq(0).attr("title");
 
-                when = when.trim();
-                when = convertToCentralTime(when);
+                match2When = data.find("p").last().text();
 
-                team1 = data.find("img").eq(0).attr("title");
-                team2 = data.find("img").eq(1).attr("title");
-                competition = data.find(".comp-logo").eq(0).attr("title");
+                match2When = match2When.trim();
+                match2When = convertToCentralTime(match2When);
 
-                let match1 = new JsonClass(when, team1, team2, competition);
+                match2Team1 = data.find("img").eq(2).attr("title");
+                match2Team2 = data.find("img").eq(3).attr("title");
+                match2Competition = data.find(".comp-logo").eq(1).attr("title");
+                
+                let match1 = new JsonClass(match1When, match1Team1, match1Team2, match1Competition);
+                let match2 = new JsonClass(match2When, match2Team1, match2Team2, match2Competition);
+                matches.push(match1, match2);
 
-                fs.writeFile('output.json', JSON.stringify(match1, null, 4), function (err) {
+                fs.writeFile('output.json', JSON.stringify(matches, null, 4), function (err) {
                     console.log('File successfully written - check your project directory for the output.json file.');
                 });
             });
