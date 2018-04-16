@@ -4,130 +4,128 @@ const fs = require('fs');
 const request = require('request');
 const cheerio = require('cheerio');
 const app = express();
-const daylightJSON = require('./daylight-savings.json');
-const britishSummerJSON = require('./british-summer-time.json');
 
 // Port
 const port = 4501;
 
-// Classes
-class JsonClass {
-    constructor(when, team1, team2, competition) {
-    this.when = when,
-    this.team1 = team1,
-    this.team2 = team2,
-    this.competition = competition}
-};
+// Require Routers
+const matchesRouter = require('./routes/matches.router');
 
-// function checkTimezones
-checkTimezones = (gameDate, gameMonth, gameYear) => {
-    let timeDifference = 0;
-    gameDate = parseInt(gameDate);
-    gameYear = parseInt(gameYear);
-    console.log('gameDate', gameDate);
-    console.log('gameMonth', gameMonth);
-    console.log('gameYear', gameYear);
+// Use Routers
+app.use('/matches', matchesRouter);
 
-    const currentDaylight = daylightJSON.find(entry => entry.year === gameYear);
-    console.log('currentDaylight', currentDaylight);
+// // Classes
+// class JsonClass {
+//     constructor(when, team1, team2, competition) {
+//     this.when = when,
+//     this.team1 = team1,
+//     this.team2 = team2,
+//     this.competition = competition}
+// };
 
-    const currentBritTime = britishSummerJSON.find(entry => entry.year === gameYear);
-    console.log('currentBritTime', currentBritTime);
+// class tableClass {
+//     constructor(name, position, points) {
+//         this.name = name,
+//         this.position = position,
+//         this.points = points
+//     }
+// }
 
-    if (gameMonth === 'March' && gameDate >= currentDaylight.startDay && gameDate < currentBritTime.startDay) {
-        console.log('Daylight savings but not British Summer time');
-        timeDifference = 7;
-    } else if ((gameMonth === 'October' && gameDate >= currentBritTime.endDay) || (gameMonth === 'November' && gameDate < currentDaylight.endDay)) {
-        console.log('Daylight savings but not British Summer time');
-        timeDifference = 7;
-    } else {
-        console.log('Standard time difference.');
-        timeDifference = 6
-    }
-    return timeDifference;
-}
+// // function checkTimezones
+// checkTimezones = (gameDate, gameMonth, gameYear) => {
+//     let timeDifference = 0;
+//     gameDate = parseInt(gameDate);
+//     gameYear = parseInt(gameYear);
+
+//     const currentDaylight = daylightJSON.find(entry => entry.year === gameYear);
+
+//     const currentBritTime = britishSummerJSON.find(entry => entry.year === gameYear);
+
+//     if (gameMonth === 'March' && gameDate >= currentDaylight.startDay && gameDate < currentBritTime.startDay) {
+//         console.log('Daylight savings but not British Summer time');
+//         timeDifference = 7;
+//     } else if ((gameMonth === 'October' && gameDate >= currentBritTime.endDay) || (gameMonth === 'November' && gameDate < currentDaylight.endDay)) {
+//         console.log('Daylight savings but not British Summer time');
+//         timeDifference = 7;
+//     } else {
+//         console.log('Standard time difference.');
+//         timeDifference = 6
+//     }
+//     return timeDifference;
+// }
 
 
-// function convertToCentralTime(liverpoolDateTime) {
-convertToCentralTime = (liverpoolDateTime) => {
-    let liverpoolSplit = liverpoolDateTime.split(" ");
-    console.log('liverpoolSplit', liverpoolSplit);
+// // function convertToCentralTime(liverpoolDateTime) {
+// convertToCentralTime = (liverpoolDateTime) => {
+//     let liverpoolSplit = liverpoolDateTime.split(" ");
 
-    let liverpoolHours = liverpoolSplit.shift();
-    console.log('liverpoolHours', liverpoolHours);
-    console.log('liverpoolSplit', liverpoolSplit);
+//     let liverpoolHours = liverpoolSplit.shift();
 
-    let timeDifference = checkTimezones(liverpoolSplit[liverpoolSplit.length - 3],liverpoolSplit[liverpoolSplit.length - 2],liverpoolSplit[liverpoolSplit.length-1]);
+//     let timeDifference = checkTimezones(liverpoolSplit[liverpoolSplit.length - 3],liverpoolSplit[liverpoolSplit.length - 2],liverpoolSplit[liverpoolSplit.length-1]);
 
-    liverpoolHours = liverpoolHours.split(":");
-    console.log('liverpoolHours', liverpoolHours);
+//     liverpoolHours = liverpoolHours.split(":");
 
-    let convertedHours = parseInt(liverpoolHours) - timeDifference;
-    convertedHours = convertedHours.toString();
-    console.log('convertedHours', convertedHours);
+//     let convertedHours = parseInt(liverpoolHours) - timeDifference;
+//     convertedHours = convertedHours.toString();
     
-    liverpoolHours[0] = convertedHours;
-    console.log('liverpoolHours', liverpoolHours);
+//     liverpoolHours[0] = convertedHours;
     
-    let convertedTime = liverpoolHours.join(':');
-    console.log('convertedTime', convertedTime);
+//     let convertedTime = liverpoolHours.join(':');
 
-    let convertedTimeArray = [convertedTime];
-    console.log('convertedTimeArray', convertedTimeArray);
+//     let convertedTimeArray = [convertedTime];
 
-    for (let i = 0; i < liverpoolSplit.length; i++) {
-        convertedTimeArray.push(liverpoolSplit[i]);
-    }
-    console.log('convertedTimeArray', convertedTimeArray);
+//     for (let i = 0; i < liverpoolSplit.length; i++) {
+//         convertedTimeArray.push(liverpoolSplit[i]);
+//     }
 
-    let centralTimeGameTime = convertedTimeArray.join(" ");
-    console.log('centralTimeGameTime', centralTimeGameTime);
+//     let centralTimeGameTime = convertedTimeArray.join(" ");
 
-    return centralTimeGameTime;
-}
+//     return centralTimeGameTime;
+// }
 
-app.get('/scrape', function (req, res) {
-    url = 'http://www.liverpoolfc.com/match/2017-18/first-team/fixtures-and-results';
+// app.get('/scrape', function (req, res) {
+//     url = 'http://www.liverpoolfc.com/match/2017-18/first-team/fixtures-and-results';
 
-    request(url, function (error, response, html) {
-        if (!error) {
-            let $ = cheerio.load(html);
+//     request(url, function (error, response, html) {
+//         if (!error) {
+//             let $ = cheerio.load(html);
 
-            // Match info
-            $('.next-match').filter(function () {
-                let data = $(this);
-                let matches = []
+//             // Match info
+//             $('.next-match').filter(function () {
+//                 let data = $(this);
+//                 let matches = []
 
-                match1When = data.find("p").first().text()
+//                 match1When = data.find("p").first().text()
 
-                match1When = match1When.trim();
-                match1When = convertToCentralTime(match1When);
+//                 match1When = match1When.trim();
+//                 match1When = convertToCentralTime(match1When);
 
-                match1Team1 = data.find("img").eq(0).attr("title");
-                match1Team2 = data.find("img").eq(1).attr("title");
-                match1Competition = data.find(".comp-logo").eq(0).attr("title");
+//                 match1Team1 = data.find("img").eq(0).attr("title");
+//                 match1Team2 = data.find("img").eq(1).attr("title");
+//                 match1Competition = data.find(".comp-logo").eq(0).attr("title");
 
-                match2When = data.find("p").last().text();
+//                 match2When = data.find("p").last().text();
 
-                match2When = match2When.trim();
-                match2When = convertToCentralTime(match2When);
+//                 match2When = match2When.trim();
+//                 match2When = convertToCentralTime(match2When);
 
-                match2Team1 = data.find("img").eq(2).attr("title");
-                match2Team2 = data.find("img").eq(3).attr("title");
-                match2Competition = data.find(".comp-logo").eq(1).attr("title");
+//                 match2Team1 = data.find("img").eq(2).attr("title");
+//                 match2Team2 = data.find("img").eq(3).attr("title");
+//                 match2Competition = data.find(".comp-logo").eq(1).attr("title");
                 
-                let match1 = new JsonClass(match1When, match1Team1, match1Team2, match1Competition);
-                let match2 = new JsonClass(match2When, match2Team1, match2Team2, match2Competition);
-                matches.push(match1, match2);
+//                 let match1 = new JsonClass(match1When, match1Team1, match1Team2, match1Competition);
+//                 let match2 = new JsonClass(match2When, match2Team1, match2Team2, match2Competition);
+//                 matches.push(match1, match2);
 
-                fs.writeFile('output.json', JSON.stringify(matches, null, 4), function (err) {
-                    console.log('File successfully written - check your project directory for the output.json file.');
-                });
-            });
-        }
-    })
-    res.send('Check your console.');
-});
+//                 // fs.writeFile('output.json', JSON.stringify(matches, null, 4), function (err) {
+//                 //     console.log('File successfully written - check your project directory for the output.json file.');
+//                 // });
+//             });
+//         }
+//     })
+
+//     res.send('Check your console.');
+// });
 
 // Listener
 app.listen(port, function () {
