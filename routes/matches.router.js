@@ -16,14 +16,6 @@ class JsonClass {
     }
 };
 
-class tableClass {
-    constructor(name, position, points) {
-        this.name = name,
-            this.position = position,
-            this.points = points
-    }
-}
-
 // function checkTimezones
 checkTimezones = (gameDate, gameMonth, gameYear) => {
     let timeDifference = 0;

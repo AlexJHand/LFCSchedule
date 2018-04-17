@@ -1,0 +1,102 @@
+[
+    {
+        "name": "Manchester City",
+        "position": "1",
+        "points": "87"
+    },
+    {
+        "name": "Manchester United",
+        "position": "2",
+        "points": "71"
+    },
+    {
+        "name": "Liverpool",
+        "position": "3",
+        "points": "70"
+    },
+    {
+        "name": "Tottenham Hotspur",
+        "position": "4",
+        "points": "67"
+    },
+    {
+        "name": "Chelsea",
+        "position": "5",
+        "points": "60"
+    },
+    {
+        "name": "Arsenal",
+        "position": "6",
+        "points": "54"
+    },
+    {
+        "name": "Burnley",
+        "position": "7",
+        "points": "52"
+    },
+    {
+        "name": "Leicester City",
+        "position": "8",
+        "points": "43"
+    },
+    {
+        "name": "Everton",
+        "position": "9",
+        "points": "42"
+    },
+    {
+        "name": "Newcastle United",
+        "position": "10",
+        "points": "41"
+    },
+    {
+        "name": "Bournemouth",
+        "position": "11",
+        "points": "38"
+    },
+    {
+        "name": "Watford",
+        "position": "12",
+        "points": "37"
+    },
+    {
+        "name": "Brighton and Hove Albion",
+        "position": "13",
+        "points": "35"
+    },
+    {
+        "name": "West Ham United",
+        "position": "14",
+        "points": "35"
+    },
+    {
+        "name": "Huddersfield Town",
+        "position": "15",
+        "points": "35"
+    },
+    {
+        "name": "Crystal Palace",
+        "position": "16",
+        "points": "34"
+    },
+    {
+        "name": "Swansea City",
+        "position": "17",
+        "points": "33"
+    },
+    {
+        "name": "Southampton",
+        "position": "18",
+        "points": "28"
+    },
+    {
+        "name": "Stoke City",
+        "position": "19",
+        "points": "28"
+    },
+    {
+        "name": "West Bromwich Albion",
+        "position": "20",
+        "points": "24"
+    }
+]
