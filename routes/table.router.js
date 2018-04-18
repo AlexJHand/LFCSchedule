@@ -34,6 +34,8 @@ router.get('/', function (req, res) {
                     position = data.find("span.value").eq(i).text();
                     points = data.find("td.points").eq(i).text();
 
+                    let team = new TeamClass(name, position, points)
+
                     table.push(team);
                 }
                 fs.writeFile('leagueTable.json', JSON.stringify(table, null, 4), function (err) {
