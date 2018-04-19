@@ -7,9 +7,15 @@ const cheerio = require('cheerio');
 
 // Classes
 class TeamClass {
-    constructor(name, position, points) {
+    constructor(name, position, won, drawn, lost, gf, ga, gd, points) {
         this.name = name,
         this.position = position,
+        this.won = won,
+        this.drawn = drawn,
+        this.lost = lost,
+        this.gf = gf,
+        this.ga = ga,
+        this.gd = gd,
         this.points = points
     }
 }
@@ -26,17 +32,26 @@ router.get('/', function (req, res) {
                 let data = $(this);
                 let table = []
 
-                teams = data.find("span.long").length;
-                console.log('teams', teams);
+                for (let i = 1; i < data.find("tr").length; i++) {
+                    $(`tr`).eq(i).filter(function () {
+                        let data = $(this);
+                        if (data.find("td").eq(4).text() != "") {
+                            name = data.find("span.long").text();
+                            position = data.find("span.value").text();
+                            won = data.find("td").eq(4).text();
+                            drawn = data.find("td").eq(5).text();
+                            lost = data.find("td").eq(6).text();
+                            gf = data.find("td").eq(7).text();
+                            ga = data.find("td").eq(8).text();
+                            gd = data.find("td").eq(9).text();
+                            gd = gd.trim();
+                            points = data.find("td.points").text();
 
-                for (let i = 0; i < data.find("span.long").length; i++) {
-                    name = data.find("span.long").eq(i).text();
-                    position = data.find("span.value").eq(i).text();
-                    points = data.find("td.points").eq(i).text();
-
-                    let team = new TeamClass(name, position, points)
-
-                    table.push(team);
+                            let team = new TeamClass(name, position, won, drawn, lost, gf, ga, gd, points)
+                            console.log("team", team);
+                            table.push(team);
+                        }
+                    })
                 }
                 fs.writeFile('leagueTable.json', JSON.stringify(table, null, 4), function (err) {
                     console.log('File successfully written - check your project directory for the output.json file.');

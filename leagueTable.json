@@ -2,101 +2,221 @@
     {
         "name": "Manchester City",
         "position": "1",
+        "won": "28",
+        "drawn": "3",
+        "lost": "2",
+        "gf": "93",
+        "ga": "25",
+        "gd": "+68",
         "points": "87"
     },
     {
         "name": "Manchester United",
         "position": "2",
-        "points": "71"
+        "won": "23",
+        "drawn": "5",
+        "lost": "6",
+        "gf": "65",
+        "ga": "26",
+        "gd": "+39",
+        "points": "74"
     },
     {
         "name": "Liverpool",
         "position": "3",
+        "won": "20",
+        "drawn": "10",
+        "lost": "4",
+        "gf": "78",
+        "ga": "35",
+        "gd": "+43",
         "points": "70"
     },
     {
         "name": "Tottenham Hotspur",
         "position": "4",
+        "won": "20",
+        "drawn": "8",
+        "lost": "6",
+        "gf": "66",
+        "ga": "31",
+        "gd": "+35",
         "points": "68"
     },
     {
         "name": "Chelsea",
         "position": "5",
+        "won": "18",
+        "drawn": "6",
+        "lost": "9",
+        "gf": "57",
+        "ga": "33",
+        "gd": "+24",
         "points": "60"
     },
     {
         "name": "Arsenal",
         "position": "6",
+        "won": "16",
+        "drawn": "6",
+        "lost": "11",
+        "gf": "62",
+        "ga": "45",
+        "gd": "+17",
         "points": "54"
     },
     {
         "name": "Burnley",
         "position": "7",
+        "won": "14",
+        "drawn": "10",
+        "lost": "9",
+        "gf": "33",
+        "ga": "29",
+        "gd": "+4",
         "points": "52"
     },
     {
         "name": "Leicester City",
         "position": "8",
+        "won": "11",
+        "drawn": "10",
+        "lost": "12",
+        "gf": "49",
+        "ga": "47",
+        "gd": "+2",
         "points": "43"
     },
     {
         "name": "Everton",
         "position": "9",
+        "won": "11",
+        "drawn": "9",
+        "lost": "14",
+        "gf": "39",
+        "ga": "54",
+        "gd": "-15",
         "points": "42"
     },
     {
         "name": "Newcastle United",
         "position": "10",
+        "won": "11",
+        "drawn": "8",
+        "lost": "14",
+        "gf": "35",
+        "ga": "42",
+        "gd": "-7",
         "points": "41"
     },
     {
         "name": "Bournemouth",
         "position": "11",
+        "won": "9",
+        "drawn": "11",
+        "lost": "15",
+        "gf": "41",
+        "ga": "58",
+        "gd": "-17",
         "points": "38"
     },
     {
         "name": "Watford",
         "position": "12",
+        "won": "10",
+        "drawn": "7",
+        "lost": "17",
+        "gf": "42",
+        "ga": "60",
+        "gd": "-18",
         "points": "37"
     },
     {
         "name": "Brighton and Hove Albion",
         "position": "13",
+        "won": "8",
+        "drawn": "12",
+        "lost": "14",
+        "gf": "32",
+        "ga": "47",
+        "gd": "-15",
         "points": "36"
     },
     {
         "name": "West Ham United",
         "position": "14",
+        "won": "8",
+        "drawn": "11",
+        "lost": "14",
+        "gf": "41",
+        "ga": "59",
+        "gd": "-18",
         "points": "35"
     },
     {
         "name": "Huddersfield Town",
         "position": "15",
+        "won": "9",
+        "drawn": "8",
+        "lost": "17",
+        "gf": "27",
+        "ga": "54",
+        "gd": "-27",
         "points": "35"
     },
     {
         "name": "Crystal Palace",
         "position": "16",
+        "won": "8",
+        "drawn": "10",
+        "lost": "16",
+        "gf": "36",
+        "ga": "54",
+        "gd": "-18",
         "points": "34"
     },
     {
         "name": "Swansea City",
         "position": "17",
+        "won": "8",
+        "drawn": "9",
+        "lost": "16",
+        "gf": "27",
+        "ga": "46",
+        "gd": "-19",
         "points": "33"
     },
     {
         "name": "Southampton",
         "position": "18",
+        "won": "5",
+        "drawn": "13",
+        "lost": "15",
+        "gf": "33",
+        "ga": "53",
+        "gd": "-20",
         "points": "28"
     },
     {
         "name": "Stoke City",
         "position": "19",
+        "won": "6",
+        "drawn": "10",
+        "lost": "18",
+        "gf": "31",
+        "ga": "64",
+        "gd": "-33",
         "points": "28"
     },
     {
         "name": "West Bromwich Albion",
         "position": "20",
+        "won": "4",
+        "drawn": "12",
+        "lost": "18",
+        "gf": "27",
+        "ga": "52",
+        "gd": "-25",
         "points": "24"
     }
 ]
