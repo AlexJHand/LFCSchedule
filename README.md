@@ -3,6 +3,8 @@ As a huge fan of Liverpool Football Club living in the Minnesota, I've found tha
 
 This app goes [LiverpoolFC.com](http://www.liverpoolfc.com/match/2017-18/first-team/fixtures-and-results), and grabs the date and posted kick-off time of the next game, as well as who is playing, and what competition it is. The application then converts that time into Central time (taking Daylight Savings Time and British Summer Time into account, depending on the time of year) and then outputs that data to a JSON file.
 
+In addition to match times, it also goes to [PremierLeague.com](https://www.premierleague.com/tables), and collects the current Premier League table and all of the data regarding standings, wins/losses/draws, goal differences, and points.
+
 ## Built With
 Node.js, Express.js, FS, Request, and Cheerio.
 
@@ -22,7 +24,7 @@ These instructions will get you a copy of the project up and running on your loc
 After the dependencies are installed, use npm start to start the server, which will run on port 4501.  
 
 ## Next Steps
-- Get Premier League table info
+- Get Premier League goal scorers list
 - Display on DOM
 
 ## Author
