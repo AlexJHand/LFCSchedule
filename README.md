@@ -26,6 +26,7 @@ After the dependencies are installed, use npm start to start the server, which w
 ## Next Steps
 - Get Premier League goal scorers list
 - Display on DOM
+- Refactor front end into React
 
 ## Author
 Alex Hand
