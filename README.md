@@ -19,6 +19,8 @@ These instructions will get you a copy of the project up and running on your loc
 	- express
 	- fs
 	- request
+	- react
+	- react-dom
 
 ### Installing
 After the dependencies are installed, use npm start to start the server, which will run on port 4501.  
