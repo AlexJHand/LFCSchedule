@@ -9,5 +9,5 @@ const App = () => {
 
 ReactDOM.render(
     <App />,
-    document.getElementById('root')
+    document.querySelector('#root')
 );
