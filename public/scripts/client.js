@@ -12,4 +12,10 @@
 //     document.querySelector('#root')
 // );
 
+// Ready
+$(document).ready(
+    console.log('In jq')
+);
+
+
 
