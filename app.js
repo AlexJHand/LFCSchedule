@@ -9,6 +9,7 @@ const app = express();
 const port = 4501;
 
 // Require Routers
+const goalsRouter = require('./routes/goals.router')
 const matchesRouter = require('./routes/matches.router');
 const tableRouter = require('./routes/table.router');
 const indexRouter = require('./routes/index.router');
