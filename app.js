@@ -15,6 +15,7 @@ const tableRouter = require('./routes/table.router');
 const indexRouter = require('./routes/index.router');
 
 // Use Routers
+app.use('/goals', goalsRouter);
 app.use('/matches', matchesRouter);
 app.use('/table', tableRouter);
 app.use('/', indexRouter);
