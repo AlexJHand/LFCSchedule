@@ -4,5 +4,13 @@ const fs = require('fs');
 const request = require('request');
 const cheerio = require('cheerio');
 
+class ScorersClass {
+    constructor(name, team, goals) {
+        this.name = name,
+        this.team = team,
+        this.goals = goals
+    }
+}
+
 // Exports 
 module.exports = router;
