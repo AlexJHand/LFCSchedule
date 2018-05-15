@@ -12,5 +12,9 @@ class ScorersClass {
     }
 }
 
+router.get('/', function(req, res) {
+    
+})
+
 // Exports 
 module.exports = router;
