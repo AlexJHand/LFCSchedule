@@ -13,7 +13,7 @@ class ScorersClass {
 }
 
 router.get('/', function(req, res) {
-    
+    url = 'https://www.premierleague.com/stats';
 })
 
 // Exports 
