@@ -8,11 +8,12 @@ const britishSummerJSON = require('../british-summer-time.json');
 
 // Classes
 class JsonClass {
-    constructor(when, team1, team2, competition) {
+    constructor(when, team1, team2, competition, objId) {
         this.when = when,
             this.team1 = team1,
             this.team2 = team2,
-            this.competition = competition
+            this.competition = competition,
+            this.objId = objId
     }
 };
 
@@ -88,6 +89,7 @@ router.get('/', function (req, res) {
                 match1Team1 = data.find("img").eq(0).attr("title");
                 match1Team2 = data.find("img").eq(1).attr("title");
                 match1Competition = data.find(".comp-logo").eq(0).attr("title");
+                match1ObjId = 0;
 
                 match2When = data.find("p").last().text();
 
@@ -97,19 +99,24 @@ router.get('/', function (req, res) {
                 match2Team1 = data.find("img").eq(2).attr("title");
                 match2Team2 = data.find("img").eq(3).attr("title");
                 match2Competition = data.find(".comp-logo").eq(1).attr("title");
+                match2ObjId = 1;
 
-                let match1 = new JsonClass(match1When, match1Team1, match1Team2, match1Competition);
-                let match2 = new JsonClass(match2When, match2Team1, match2Team2, match2Competition);
+                let match1 = new JsonClass(match1When, match1Team1, match1Team2, match1Competition, match1ObjId);
+                let match2 = new JsonClass(match2When, match2Team1, match2Team2, match2Competition, match2ObjId);
                 matches.push(match1, match2);
 
                 fs.writeFile('output.json', JSON.stringify(matches, null, 4), function (err) {
                     console.log('File successfully written - check your project directory for the output.json file.');
                 });
+
+                res.send(matches);
             });
+        } else {
+            res.sendStatus(201);
         }
     })
 
-    res.send('Check your console.');
+    // res.send(matches);
 });
 
 // Exports 
