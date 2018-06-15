@@ -50,7 +50,8 @@ class App extends Component {
               <span>{game.team1} </span>
               <span>vs. </span>
               <span>{game.team2} </span>
-              <span>{game.when}</span>
+              <span>{game.when} </span>
+              <span>{game.competition}</span>
             </div>
           )}
         </div>

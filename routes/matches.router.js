@@ -88,7 +88,13 @@ router.get('/', function (req, res) {
 
                 match1Team1 = data.find("img").eq(0).attr("title");
                 match1Team2 = data.find("img").eq(1).attr("title");
-                match1Competition = data.find(".comp-logo").eq(0).attr("title");
+                if (data.find(".comp-logo").eq(0).attr("title")) {
+                    match1Competition = data.find(".comp-logo").eq(0).attr("title");
+                } else {
+                    match1Competition = data.find("span").eq(1).text();
+                    console.log("match1Competition", match1Competition);
+                }
+                
                 match1ObjId = 0;
 
                 match2When = data.find("p").last().text();
@@ -98,7 +104,13 @@ router.get('/', function (req, res) {
 
                 match2Team1 = data.find("img").eq(2).attr("title");
                 match2Team2 = data.find("img").eq(3).attr("title");
-                match2Competition = data.find(".comp-logo").eq(1).attr("title");
+                if (data.find(".comp-logo").eq(1).attr("title")) {
+                    match2Competition = data.find(".comp-logo").eq(1).attr("title");
+                } else {
+                    match2Competition = data.find("span").eq(3).text();
+                    console.log("match1Competition", match2Competition);
+                }
+                
                 match2ObjId = 1;
 
                 let match1 = new JsonClass(match1When, match1Team1, match1Team2, match1Competition, match1ObjId);
