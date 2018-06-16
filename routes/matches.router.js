@@ -17,6 +17,12 @@ class JsonClass {
     }
 };
 
+// class Images {
+
+// }
+
+let matches = [];
+
 // function checkTimezones
 checkTimezones = (gameDate, gameMonth, gameYear) => {
     let timeDifference = 0;
@@ -69,8 +75,11 @@ convertToCentralTime = (liverpoolDateTime) => {
     return centralTimeGameTime;
 }
 
+// getMatchImages(matches) 
+
 router.get('/', function (req, res) {
     url = 'http://www.liverpoolfc.com/match/2017-18/first-team/fixtures-and-results';
+    // let matches = []
 
     request(url, function (error, response, html) {
         if (!error) {
@@ -79,7 +88,7 @@ router.get('/', function (req, res) {
             // Match info
             $('.next-match').filter(function () {
                 let data = $(this);
-                let matches = []
+                // let matches = []
 
                 match1When = data.find("p").first().text()
 
@@ -88,6 +97,7 @@ router.get('/', function (req, res) {
 
                 match1Team1 = data.find("img").eq(0).attr("title");
                 match1Team2 = data.find("img").eq(1).attr("title");
+                
                 if (data.find(".comp-logo").eq(0).attr("title")) {
                     match1Competition = data.find(".comp-logo").eq(0).attr("title");
                 } else {
@@ -127,9 +137,43 @@ router.get('/', function (req, res) {
             res.sendStatus(201);
         }
     })
-
-    // res.send(matches);
 });
+
+router.get('/images', function (req, res) {
+    
+    for (let i = 0; i < matches.length; i++) {
+        let tempMatchTeam1 = matches[i].team1.replace(' ', '_');
+        let matchTeam1Url = 'https://en.wikipedia.org/wiki/' + tempMatchTeam1 + '_FC';
+        console.log('match1Team1Url', matchTeam1Url);
+        
+        let tempMatchTeam2 = matches[i].team2.replace(' ', '_');
+        let matchTeam2Url = 'https://en.wikipedia.org/wiki/' + tempMatchTeam2 + '_FC';
+        console.log('match2Team1Url', matchTeam2Url);
+
+        let match1Image = "";
+        let match2Image = "";
+
+        request(matchTeam1Url, function (error, response, html) {
+            if (!error) {
+                let $ = cheerio.load(html);
+
+                // Match info
+                $('.image').filter(function () {
+                    let data = $(this);
+
+                    match1Image = data.find("img").eq(0).attr("src");
+                })
+                console.log("match1Image", match1Image);
+                matches[i].team1Image = match1Image;
+                console.log("matches loop", matches);
+            } else {
+                res.sendStatus(201);
+            }
+        });
+    }
+    res.send(matches)
+    
+})
 
 // Exports 
 module.exports = router;

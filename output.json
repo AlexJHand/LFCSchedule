@@ -4,6 +4,8 @@
         "team1": "Chester",
         "team2": "Liverpool",
         "competition": "Friendly",
+        "team1Image": "",
+        "team2Image": "",
         "objId": 0
     },
     {
@@ -11,6 +13,8 @@
         "team1": "Tranmere Rovers",
         "team2": "Liverpool",
         "competition": "Friendly",
+        "team1Image": "",
+        "team2Image": "",
         "objId": 1
     }
 ]

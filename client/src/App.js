@@ -11,6 +11,7 @@ class App extends Component {
       matches: null
     };
     this.fetchNextMatches = this.fetchNextMatches.bind(this);
+    this.fetchNextMatchesImages = this.fetchNextMatchesImages.bind(this);
     this.setNextMatches = this.setNextMatches.bind(this);
   }
 
@@ -24,6 +25,13 @@ class App extends Component {
 
   fetchNextMatches() {
     axios(`/matches`)
+      .then(matches => this.fetchNextMatchesImages(matches.data))
+      // .then(matches => this.setNextMatches(matches.data))
+      .catch(error => error)
+  }
+
+  fetchNextMatchesImages(matches) {
+    axios(`/matches/images`)
       .then(matches => this.setNextMatches(matches.data))
       .catch(error => error)
   }
