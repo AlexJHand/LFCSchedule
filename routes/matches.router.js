@@ -158,10 +158,11 @@ router.get('/images', function (req, res) {
                 let $ = cheerio.load(html);
 
                 // Match info
-                $('.image').filter(function () {
+                $('.infobox').filter(function () {
                     let data = $(this);
 
-                    match1Image = data.find("img").eq(0).attr("src");
+                    let tempMatch1Image = data.find("img").eq(0).attr("src");
+                    match1Image = "https:" + tempMatch1Image;
                 })
                 console.log("match1Image", match1Image);
                 matches[i].team1Image = match1Image;
