@@ -17,9 +17,13 @@ class JsonClass {
     }
 };
 
-// class Images {
-
-// }
+class Images {
+    constructor(match, team1Image, team2Image) {
+        this.match = match,
+        this.team1Image = team1Image,
+        this.team2Image = team2Image
+    }
+}
 
 let matches = [];
 
