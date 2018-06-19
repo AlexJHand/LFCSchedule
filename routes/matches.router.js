@@ -143,24 +143,30 @@ router.get('/', function (req, res) {
     })
 });
 
+// router.get('/images', function (req, res) {
 router.get('/images', function (req, res) {
+    let team = req.query.team
+    console.log("In images.", team);
+    let images = [];
     
-    for (let i = 0; i < matches.length; i++) {
-        let tempMatchTeam1 = matches[i].team1.replace(' ', '_');
+    // for (let i = 0; i <= matches.length; i++) {
+        // if (i < matches.length) {
+            
+        let tempMatchTeam1 = team.replace(' ', '_');
         let matchTeam1Url = 'https://en.wikipedia.org/wiki/' + tempMatchTeam1 + '_FC';
         console.log('match1Team1Url', matchTeam1Url);
         
-        let tempMatchTeam2 = matches[i].team2.replace(' ', '_');
-        let matchTeam2Url = 'https://en.wikipedia.org/wiki/' + tempMatchTeam2 + '_FC';
-        console.log('match2Team1Url', matchTeam2Url);
+        // let tempMatchTeam2 = matches[i].team2.replace(' ', '_');
+        // let matchTeam2Url = 'https://en.wikipedia.org/wiki/' + tempMatchTeam2 + '_FC';
+        // console.log('match2Team1Url', matchTeam2Url);
 
         let match1Image = "";
-        let match2Image = "";
+        // let match2Image = "";
 
         request(matchTeam1Url, function (error, response, html) {
             if (!error) {
                 let $ = cheerio.load(html);
-
+                
                 // Match info
                 $('.infobox').filter(function () {
                     let data = $(this);
@@ -169,15 +175,36 @@ router.get('/images', function (req, res) {
                     match1Image = "https:" + tempMatch1Image;
                 })
                 console.log("match1Image", match1Image);
-                matches[i].team1Image = match1Image;
-                console.log("matches loop", matches);
+                res.send(match1Image)
+                // console.log("matches loop", matches);
             } else {
                 res.sendStatus(201);
             }
         });
-    }
-    res.send(matches)
-    
+
+        // request(matchTeam2Url, function (error, response, html) {
+        //     if (!error) {
+        //         let $ = cheerio.load(html);
+
+        //         // Match info
+        //         $('.infobox').filter(function () {
+        //             let data = $(this);
+
+        //             let tempMatch2Image = data.find("img").eq(0).attr("src");
+        //             match2Image = "https:" + tempMatch2Image;
+        //         })
+        //         console.log("match2Image", match2Image);
+        //         // console.log("matches loop", matches);
+        //     } else {
+        //         res.sendStatus(201);
+        //     }
+        // });
+        // console.log("Matches after request -->", match1Image, match2Image);
+        // let thisMatch = new Images(i, match1Image, match2Image);
+        // console.log("thisMatch", thisMatch);
+    // } 
+    // res.send(match1Image)
+// }
 })
 
 // Exports 

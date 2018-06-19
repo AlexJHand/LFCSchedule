@@ -7,8 +7,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      // matches: null
-      matches: null
+      matches: null,
+      images: []
     };
     this.fetchNextMatches = this.fetchNextMatches.bind(this);
     this.fetchNextMatchesImages = this.fetchNextMatchesImages.bind(this);
@@ -25,20 +25,46 @@ class App extends Component {
 
   fetchNextMatches() {
     axios(`/matches`)
-      .then(matches => this.fetchNextMatchesImages(matches.data))
+      .then(matches => this.setNextMatches(matches.data))
+      // .then(matches => this.fetchNextMatchesImages(matches.data))
       // .then(matches => this.setNextMatches(matches.data))
       .catch(error => error)
   }
 
   fetchNextMatchesImages(matches) {
-    axios(`/matches/images`)
-      .then(matches => this.setNextMatches(matches.data))
-      .catch(error => error)
+    console.log("In fetchNextMatchesImages");
+    let tempImages = [];
+    
+    for (let i = 0; i < matches.length; i++) {
+      axios.get(`/matches/images`, {
+        params: {
+          team: matches[i].team1
+        }
+      })
+        // .then(image => tempImages.push(image.data))
+        .then(images => this.setNextImages(images.data))
+        .catch(error => error)
+      axios.get(`/matches/images`, {
+        params: {
+          team: matches[i].team2
+        }
+      })
+        // .then(image => tempImages.push(image.data))
+        // .then(tempImages => this.setNextImages(tempImages))
+        .then(images => this.setNextImages(images.data))
+        .catch(error => error)
+    }
+  }
+
+  setNextImages(images) {
+    console.log("images", images);
+    
   }
 
   setNextMatches(matches) {
+    this.fetchNextMatchesImages(matches)
     console.log('matches', matches);
-    this.setState({matches: {matches}});
+    this.setState({matches: {matches}})
     console.log("this.state", this.state);
     
   }
