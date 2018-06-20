@@ -25,8 +25,6 @@ class Images {
     }
 }
 
-let matches = [];
-
 // function checkTimezones
 checkTimezones = (gameDate, gameMonth, gameYear) => {
     let timeDifference = 0;
@@ -83,7 +81,7 @@ convertToCentralTime = (liverpoolDateTime) => {
 
 router.get('/', function (req, res) {
     url = 'http://www.liverpoolfc.com/match/2017-18/first-team/fixtures-and-results';
-    // let matches = []
+    let matches = []
 
     request(url, function (error, response, html) {
         if (!error) {
