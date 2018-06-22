@@ -8,7 +8,11 @@ class App extends Component {
 
     this.state = {
       matches: null,
-      images: null
+      images: null,
+      image1: null,
+      image2: null,
+      image3: null,
+      image4: null
     };
     this.fetchNextMatches = this.fetchNextMatches.bind(this);
     this.fetchNextMatchesImages = this.fetchNextMatchesImages.bind(this);
@@ -84,10 +88,19 @@ class App extends Component {
   }
 
   setNextImages(images) {
-    console.log("setNextImages", images);
-    images.sort(function(a, b) {return a.objId - b.objId});
-    this.setState({images: {images}});
-    console.log("setNextImages sorted", images);
+    setTimeout(() => {
+      console.log("setNextImages", images);
+      images.sort(function (a, b) { return a.objId - b.objId });
+      this.setState({ images: { images } });
+      console.log("setNextImages sorted", images);
+    }, 500)
+    // setTimeout(() => {
+    //   console.log("setNextImages", images);
+    //   let team1 = images.find(function (obj) { return obj.objId === 1 });
+    //   console.log("team1", team1);
+    //   this.setState({ images: { images } });
+    //   console.log("setNextImages sorted", images);
+    // }, 500)
   }
 
   setNextMatches(matches) {
@@ -102,6 +115,9 @@ class App extends Component {
     const {matches} = this.state;
     const list = (matches || []);
     const imagesList = this.state.images;
+    // let team1 = imagesList.images.find(function (obj) {return obj.objId === 1});
+    // console.log("team1", team1);
+    
     console.log('matches in render', matches);
     console.log('this.state in render', this.state);
     console.log("list", list.matches);
