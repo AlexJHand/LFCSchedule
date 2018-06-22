@@ -4,13 +4,15 @@
         "team1": "Chester",
         "team2": "Liverpool",
         "competition": "Friendly",
-        "objId": 0
+        "objId": 0,
+        "team1Image": null
     },
     {
         "when": "13:30 Wed 11th July 2018",
         "team1": "Tranmere Rovers",
         "team2": "Liverpool",
         "competition": "Friendly",
-        "objId": 1
+        "objId": 1,
+        "team1Image": null
     }
 ]

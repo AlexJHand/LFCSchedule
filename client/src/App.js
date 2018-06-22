@@ -8,7 +8,7 @@ class App extends Component {
 
     this.state = {
       matches: null,
-      images: []
+      images: null
     };
     this.fetchNextMatches = this.fetchNextMatches.bind(this);
     this.fetchNextMatchesImages = this.fetchNextMatchesImages.bind(this);
@@ -35,30 +35,59 @@ class App extends Component {
     console.log("In fetchNextMatchesImages");
     let tempImages = [];
     
-    for (let i = 0; i < matches.length; i++) {
-      axios.get(`/matches/images`, {
-        params: {
-          team: matches[i].team1
-        }
-      })
-        // .then(image => tempImages.push(image.data))
-        .then(images => this.setNextImages(images.data))
-        .catch(error => error)
-      axios.get(`/matches/images`, {
-        params: {
-          team: matches[i].team2
-        }
-      })
-        // .then(image => tempImages.push(image.data))
-        // .then(tempImages => this.setNextImages(tempImages))
-        .then(images => this.setNextImages(images.data))
-        .catch(error => error)
-    }
+    axios.get(`/matches/images`, {
+      params: {
+        team: matches[0].team1,
+        key: 0
+      }
+    })
+      // .then(image => tempImages.push(image.data))
+      .then(images => tempImages.push(images.data))
+      // .then(images => this.setNextImages(tempImages))
+      .catch(error => error)
+      .then(
+        axios.get(`/matches/images`, {
+          params: {
+            team: matches[0].team2,
+            key: 1
+          }
+        })
+          // .then(image => tempImages.push(image.data))
+          // .then(tempImages => this.setNextImages(tempImages))
+          .then(images => tempImages.push(images.data))
+          // .then(images => this.setNextImages(tempImages))
+          .catch(error => error))
+          .then(
+            axios.get(`/matches/images`, {
+              params: {
+                team: matches[1].team1,
+                key: 2
+              }
+            })
+              // .then(image => tempImages.push(image.data))
+              .then(images => tempImages.push(images.data))
+              // .then(images => this.setNextImages(tempImages))
+              .catch(error => error))
+              .then(
+                axios.get(`/matches/images`, {
+                  params: {
+                    team: matches[1].team2,
+                    key: 3
+                  }
+                })
+                  // .then(image => tempImages.push(image.data))
+                  // .then(tempImages => this.setNextImages(tempImages))
+                  .then(images => tempImages.push(images.data))
+                  .then(() => this.setNextImages(tempImages))
+                  // .then(image => this.setState({image4: image}))
+                  .catch(error => error))
   }
 
   setNextImages(images) {
-    console.log("images", images);
-    
+    console.log("setNextImages", images);
+    images.sort(function(a, b) {return a.objId - b.objId});
+    this.setState({images: {images}});
+    console.log("setNextImages sorted", images);
   }
 
   setNextMatches(matches) {
@@ -72,22 +101,48 @@ class App extends Component {
   render() {
     const {matches} = this.state;
     const list = (matches || []);
+    const imagesList = this.state.images;
     console.log('matches in render', matches);
     console.log('this.state in render', this.state);
     console.log("list", list.matches);
+    console.log("imagesList", imagesList);
     
     if (list.matches) {
       return (
         <div className="page">
-          {list.matches.map(game =>
-            <div key={game.objId}>
-              <span>{game.team1} </span>
-              <span>vs. </span>
-              <span>{game.team2} </span>
-              <span>{game.when} </span>
-              <span>{game.competition}</span>
-            </div>
-          )}
+          <div key={list.matches[0].objId}>
+            {imagesList
+              ? <img src={imagesList.images[0].imageUrl} alt={list.matches[0].team1} />
+              : <span></span>
+            }
+            <span>{list.matches[0].team1} </span>
+            <span>vs. </span>
+            
+            {imagesList && imagesList.images.length > 1
+              ? <img src={imagesList.images[1].imageUrl} alt={list.matches[0].team2} />
+              : <span></span>
+            }
+            <span>{list.matches[0].team2} </span>
+            <span>{list.matches[0].when} </span>
+            <span>{list.matches[0].competition}</span>
+          </div>
+          <div key={list.matches[1].objId}>
+            
+            {imagesList && imagesList.images.length > 2
+              ? <img src={imagesList.images[2].imageUrl} alt={list.matches[1].team1} />
+              : <span></span>
+            }
+            <span>{list.matches[1].team1} </span>
+            <span>vs. </span>
+            
+            {imagesList && imagesList.images.length > 3
+              ? <img src={imagesList.images[3].imageUrl} alt={list.matches[1].team2} />
+              : <span></span>
+            }
+            <span>{list.matches[1].team2} </span>
+            <span>{list.matches[1].when} </span>
+            <span>{list.matches[1].competition}</span>
+          </div>
         </div>
       );
     } else {

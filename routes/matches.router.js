@@ -13,15 +13,23 @@ class JsonClass {
             this.team1 = team1,
             this.team2 = team2,
             this.competition = competition,
-            this.objId = objId
+            this.objId = objId,
+            this.team1Image = null
     }
 };
 
+// class Images {
+//     constructor(match, team1Image, team2Image) {
+//         this.match = match,
+//         this.team1Image = team1Image,
+//         this.team2Image = team2Image
+//     }
+// }
+
 class Images {
-    constructor(match, team1Image, team2Image) {
-        this.match = match,
-        this.team1Image = team1Image,
-        this.team2Image = team2Image
+    constructor(imageUrl, objId) {
+        this.imageUrl = imageUrl,
+            this.objId = objId
     }
 }
 
@@ -143,7 +151,8 @@ router.get('/', function (req, res) {
 
 // router.get('/images', function (req, res) {
 router.get('/images', function (req, res) {
-    let team = req.query.team
+    let team = req.query.team;
+    let imageKey = req.query.key;
     console.log("In images.", team);
     let images = [];
     
@@ -172,8 +181,10 @@ router.get('/images', function (req, res) {
                     let tempMatch1Image = data.find("img").eq(0).attr("src");
                     match1Image = "https:" + tempMatch1Image;
                 })
-                console.log("match1Image", match1Image);
-                res.send(match1Image)
+                // console.log("match1Image", match1Image);
+                imageObj = new Images(match1Image, imageKey);
+                console.log("imageObj", imageObj);
+                res.send(imageObj)
                 // console.log("matches loop", matches);
             } else {
                 res.sendStatus(201);
