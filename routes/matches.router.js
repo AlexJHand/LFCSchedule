@@ -18,14 +18,6 @@ class JsonClass {
     }
 };
 
-// class Images {
-//     constructor(match, team1Image, team2Image) {
-//         this.match = match,
-//         this.team1Image = team1Image,
-//         this.team2Image = team2Image
-//     }
-// }
-
 class Images {
     constructor(imageUrl, objId) {
         this.imageUrl = imageUrl,
@@ -85,8 +77,6 @@ convertToCentralTime = (liverpoolDateTime) => {
     return centralTimeGameTime;
 }
 
-// getMatchImages(matches) 
-
 router.get('/', function (req, res) {
     url = 'http://www.liverpoolfc.com/match/2017-18/first-team/fixtures-and-results';
     let matches = []
@@ -98,7 +88,6 @@ router.get('/', function (req, res) {
             // Match info
             $('.next-match').filter(function () {
                 let data = $(this);
-                // let matches = []
 
                 match1When = data.find("p").first().text()
 
@@ -149,71 +138,36 @@ router.get('/', function (req, res) {
     })
 });
 
-// router.get('/images', function (req, res) {
 router.get('/images', function (req, res) {
     let team = req.query.team;
     let imageKey = req.query.key;
     console.log("In images.", team);
     let images = [];
-    
-    // for (let i = 0; i <= matches.length; i++) {
-        // if (i < matches.length) {
             
-        let tempMatchTeam1 = team.replace(' ', '_');
-        let matchTeam1Url = 'https://en.wikipedia.org/wiki/' + tempMatchTeam1 + '_FC';
-        console.log('match1Team1Url', matchTeam1Url);
-        
-        // let tempMatchTeam2 = matches[i].team2.replace(' ', '_');
-        // let matchTeam2Url = 'https://en.wikipedia.org/wiki/' + tempMatchTeam2 + '_FC';
-        // console.log('match2Team1Url', matchTeam2Url);
+    let tempMatchTeam1 = team.replace(' ', '_');
+    let matchTeam1Url = 'https://en.wikipedia.org/wiki/' + tempMatchTeam1 + '_FC';
+    console.log('match1Team1Url', matchTeam1Url);
 
-        let match1Image = "";
-        // let match2Image = "";
+    let match1Image = "";
 
-        request(matchTeam1Url, function (error, response, html) {
-            if (!error) {
-                let $ = cheerio.load(html);
-                
-                // Match info
-                $('.infobox').filter(function () {
-                    let data = $(this);
+    request(matchTeam1Url, function (error, response, html) {
+        if (!error) {
+            let $ = cheerio.load(html);
+            
+            // Match info
+            $('.infobox').filter(function () {
+                let data = $(this);
 
-                    let tempMatch1Image = data.find("img").eq(0).attr("src");
-                    match1Image = "https:" + tempMatch1Image;
-                })
-                // console.log("match1Image", match1Image);
-                imageObj = new Images(match1Image, imageKey);
-                console.log("imageObj", imageObj);
-                res.send(imageObj)
-                // console.log("matches loop", matches);
-            } else {
-                res.sendStatus(201);
-            }
-        });
-
-        // request(matchTeam2Url, function (error, response, html) {
-        //     if (!error) {
-        //         let $ = cheerio.load(html);
-
-        //         // Match info
-        //         $('.infobox').filter(function () {
-        //             let data = $(this);
-
-        //             let tempMatch2Image = data.find("img").eq(0).attr("src");
-        //             match2Image = "https:" + tempMatch2Image;
-        //         })
-        //         console.log("match2Image", match2Image);
-        //         // console.log("matches loop", matches);
-        //     } else {
-        //         res.sendStatus(201);
-        //     }
-        // });
-        // console.log("Matches after request -->", match1Image, match2Image);
-        // let thisMatch = new Images(i, match1Image, match2Image);
-        // console.log("thisMatch", thisMatch);
-    // } 
-    // res.send(match1Image)
-// }
+                let tempMatch1Image = data.find("img").eq(0).attr("src");
+                match1Image = "https:" + tempMatch1Image;
+            })
+            imageObj = new Images(match1Image, imageKey);
+            console.log("imageObj", imageObj);
+            res.send(imageObj)
+        } else {
+            res.sendStatus(201);
+        }
+    });
 })
 
 // Exports 
