@@ -92,50 +92,56 @@ class App extends Component {
     
     if (list.matches) {
       return (
-        <div className="page">
-          <div key={list.matches[0].objId}>
-            <div className="matchOneImages">
-              {image1
-                
-                ? <img src={image1.imageUrl} alt={list.matches[0].team1} />
-                : <span></span>
-              }
-              
-              <span>vs. </span>
-              
-              {image2
-                ? <img src={image2.imageUrl} alt={list.matches[0].team2} />
-                : <span></span>
-              }
-            </div>
-            <div className="matchOneInfo">
-              <span>{list.matches[0].team1} </span>
-              <span>vs. </span>
-              <span>{list.matches[0].team2} </span>
-              <span>{list.matches[0].when} </span>
-              <span>{list.matches[0].competition}</span>
-            </div>
+        <div className="container">
+          <div className="header">
+            <span className="headerSpan"></span><img className="headerImage" src="http://b.thumbs.redditmedia.com/tOE7DOLFnhzUYjaDyNjt-aVCCFuLCNaKuqiKFQID0wI.png" />
+            <div className="headerTitle">Liverpool FC Dashboard</div>
           </div>
-          <div key={list.matches[1].objId}>
-            <div className="matchTwoImages">
-              {image3
-                ? <img src={image3.imageUrl} alt={list.matches[1].team1} />
-                : <span></span>
-              }
-              
-              <span>vs. </span>
-              
-              {image4
-                ? <img src={image4.imageUrl} alt={list.matches[1].team1} />
-                : <span></span>
-              }
+          <div className="card">
+            <div key={list.matches[0].objId} className="match1">
+              <div className="matchOneImages">
+                {image1
+                  
+                  ? <img src={image1.imageUrl} alt={list.matches[0].team1} className="team1Logo"/>
+                  : <span></span>
+                }
+                
+                <span>vs. </span>
+                
+                {image2
+                  ? <img src={image2.imageUrl} alt={list.matches[0].team2} />
+                  : <span></span>
+                }
+              </div>
+              <div className="matchOneInfo">
+                <span>{list.matches[0].team1} </span>
+                <span>vs. </span>
+                <span>{list.matches[0].team2} </span>
+                <span>{list.matches[0].when} </span>
+                <span>{list.matches[0].competition}</span>
+              </div>
             </div>
-            <div className="matchTwoInfo">
-              <span>{list.matches[1].team1} </span>
-              <span>vs. </span>
-              <span>{list.matches[1].team2} </span>
-              <span>{list.matches[1].when} </span>
-              <span>{list.matches[1].competition}</span>
+            <div key={list.matches[1].objId} className="match2">
+              <div className="matchTwoImages">
+                {image3
+                  ? <img src={image3.imageUrl} alt={list.matches[1].team1} />
+                  : <span></span>
+                }
+                
+                <span>vs. </span>
+                
+                {image4
+                  ? <img src={image4.imageUrl} alt={list.matches[1].team1} />
+                  : <span></span>
+                }
+              </div>
+              <div className="matchTwoInfo">
+                <span>{list.matches[1].team1} </span>
+                <span>vs. </span>
+                <span>{list.matches[1].team2} </span>
+                <span>{list.matches[1].when} </span>
+                <span>{list.matches[1].competition}</span>
+              </div>
             </div>
           </div>
         </div>
