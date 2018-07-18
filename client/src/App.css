@@ -2,7 +2,6 @@
   height: 180px;
   width: 100%;
   background-color: #DB0E13;
-  margin-top: 20px;
 }
 
 .headerSpan {
@@ -30,6 +29,17 @@
   background-color: #fff;
 }
 
-.match1 {
-  
+.matches {
+  display: flex;
+  justify-content: center;
+}
+
+.matchCard {
+  margin: 2%;
+
+}
+
+.vs {
+  font-size: 50px;
+  margin: 10px;
 }

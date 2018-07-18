@@ -99,15 +99,15 @@ class App extends Component {
           </div>
           <div className="card">
             <div className="matches">
-              <div key={list.matches[0].objId} className="match1">
-                <div className="matchOneImages">
+              <div key={list.matches[0].objId} className="match1 matchCard">
+                <div className="matchOneImages matchImages">
                   {image1
                     
                     ? <img src={image1.imageUrl} alt={list.matches[0].team1} className="team1Logo"/>
                     : <span></span>
                   }
                   
-                  <span>vs. </span>
+                  <span class="vs">vs. </span>
                   
                   {image2
                     ? <img src={image2.imageUrl} alt={list.matches[0].team2} />
@@ -115,21 +115,24 @@ class App extends Component {
                   }
                 </div>
                 <div className="matchOneInfo">
-                  <span>{list.matches[0].team1} </span>
-                  <span>vs. </span>
-                  <span>{list.matches[0].team2} </span>
-                  <span>{list.matches[0].when} </span>
-                  <span>{list.matches[0].competition}</span>
+                  <div>
+                    <span>{list.matches[0].team1} </span>
+                    <span>vs. </span>
+                    <span>{list.matches[0].team2} </span>
+                  </div>
+                  
+                  <div>{list.matches[0].when} </div>
+                  <div>{list.matches[0].competition}</div>
                 </div>
               </div>
-              <div key={list.matches[1].objId} className="match2">
-                <div className="matchTwoImages">
+              <div key={list.matches[1].objId} className="match2 matchCard">
+                <div className="matchTwoImages matchImages">
                   {image3
                     ? <img src={image3.imageUrl} alt={list.matches[1].team1} />
                     : <span></span>
                   }
                   
-                  <span>vs. </span>
+                  <span class="vs">vs. </span>
                   
                   {image4
                     ? <img src={image4.imageUrl} alt={list.matches[1].team1} />
@@ -137,9 +140,12 @@ class App extends Component {
                   }
                 </div>
                 <div className="matchTwoInfo">
-                  <span>{list.matches[1].team1} </span>
-                  <span>vs. </span>
-                  <span>{list.matches[1].team2} </span>
+                  <div>
+                    <span>{list.matches[1].team1} </span>
+                    <span>vs. </span>
+                    <span>{list.matches[1].team2} </span>
+                  </div>
+                  
                   <span>{list.matches[1].when} </span>
                   <span>{list.matches[1].competition}</span>
                 </div>
