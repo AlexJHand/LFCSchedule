@@ -1,17 +1,17 @@
 [
     {
-        "when": "9:00 Sat 7th July 2018",
-        "team1": "Chester",
+        "when": "13:45 Thu 19th July 2018",
+        "team1": "Blackburn Rovers",
         "team2": "Liverpool",
-        "competition": "Friendly",
+        "competition": "International Champions Cup",
         "objId": 0,
         "team1Image": null
     },
     {
-        "when": "13:30 Wed 11th July 2018",
-        "team1": "Tranmere Rovers",
+        "when": "15:05 Sun 22nd July 2018",
+        "team1": "Borussia Dortmund",
         "team2": "Liverpool",
-        "competition": "Friendly",
+        "competition": "",
         "objId": 1,
         "team1Image": null
     }

@@ -6,6 +6,8 @@ const cheerio = require('cheerio');
 const daylightJSON = require('../daylight-savings.json');
 const britishSummerJSON = require('../british-summer-time.json');
 
+const teamExceptions = ['Borussia Dortmund'];
+
 // Classes
 class JsonClass {
     constructor(when, team1, team2, competition, objId) {
@@ -142,18 +144,40 @@ router.get('/images', function (req, res) {
     let team = req.query.team;
     let imageKey = req.query.key;
     console.log("In images.", team);
-    let images = [];
-            
+
+    let exception = teamExceptions.includes(team);
+    console.log('exception', exception);
+
     let tempMatchTeam1 = team.replace(' ', '_');
-    let matchTeam1Url = 'https://en.wikipedia.org/wiki/' + tempMatchTeam1 + '_FC';
-    console.log('match1Team1Url', matchTeam1Url);
+    let matchTeam1Url = 'https://en.wikipedia.org/wiki/' + tempMatchTeam1;
+
+    if (exception === true) {
+        console.log('match1Team1Url', matchTeam1Url);
+    } else {
+        matchTeam1Url += '_FC';
+        console.log('match1Team1Url', matchTeam1Url);
+    }
+    
+    // let tempMatchTeam1 = team.replace(' ', '_');
+    // let matchTeam1Url = 'https://en.wikipedia.org/wiki/' + tempMatchTeam1 + '_FC';
+    // console.log('match1Team1Url', matchTeam1Url);
 
     let match1Image = "";
 
     request(matchTeam1Url, function (error, response, html) {
         if (!error) {
             let $ = cheerio.load(html);
-            
+            let bodyContentBold = "";
+            $('#noarticletext').filter(function() {
+
+                bodyContentBold = $(this);
+                let notFoundText = bodyContentBold.find("b").eq(1).text();
+                console.log('bodyContentBold--->', notFoundText);
+
+                if (notFoundText === "Wikipedia does not have an article with this exact name.") {
+                    console.log("In bodyContentBold");
+                }
+            })
             // Match info
             $('.infobox').filter(function () {
                 let data = $(this);
