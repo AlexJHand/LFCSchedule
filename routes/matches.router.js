@@ -100,11 +100,16 @@ router.get('/', function (req, res) {
                 match1Team1 = data.find("img").eq(0).attr("title");
                 match1Team2 = data.find("img").eq(1).attr("title");
                 
-                if (data.find(".comp-logo").eq(0).attr("title")) {
+                match1CompLogo = null;
+
+                if (data.find("div").eq(2).attr("class") === "comp-logo") {
                     match1Competition = data.find(".comp-logo").eq(0).attr("title");
+                    match1CompLogo = true;
+                    console.log('---> comp-logo');
                 } else {
                     match1Competition = data.find("span").eq(1).text();
-                    console.log("match1Competition", match1Competition);
+                    match1CompLogo = false;
+                    console.log('---> not comp-logo');
                 }
                 
                 match1ObjId = 0;
@@ -116,12 +121,25 @@ router.get('/', function (req, res) {
 
                 match2Team1 = data.find("img").eq(2).attr("title");
                 match2Team2 = data.find("img").eq(3).attr("title");
-                if (data.find(".comp-logo").eq(1).attr("title")) {
-                    match2Competition = data.find(".comp-logo").eq(1).attr("title");
+
+                if (match1CompLogo === true) {
+                    if (data.find("div").eq(5).attr("class") === "comp-logo") {
+                        match2Competition = data.find(".comp-logo").eq(0).attr("title");
+                        console.log('---> comp-logo');
+                    } else {
+                        match2Competition = data.find("span").eq(2).text();
+                        console.log('---> not comp-logo');
+                    }
                 } else {
-                    match2Competition = data.find("span").eq(3).text();
-                    console.log("match1Competition", match2Competition);
+                    if (data.find("div").eq(4).attr("class") === "comp-logo") {
+                        match2Competition = data.find(".comp-logo").eq(0).attr("title");
+                        console.log('---> comp-logo');
+                    } else {
+                        match2Competition = data.find("span").eq(3).text();
+                        console.log('---> not comp-logo');
+                    }
                 }
+                
                 
                 match2ObjId = 1;
 
