@@ -158,10 +158,6 @@ router.get('/images', function (req, res) {
         matchTeam1Url += '_FC';
         console.log('match1Team1Url', matchTeam1Url);
     }
-    
-    // let tempMatchTeam1 = team.replace(' ', '_');
-    // let matchTeam1Url = 'https://en.wikipedia.org/wiki/' + tempMatchTeam1 + '_FC';
-    // console.log('match1Team1Url', matchTeam1Url);
 
     let match1Image = "";
 
