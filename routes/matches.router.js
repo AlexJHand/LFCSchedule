@@ -6,6 +6,7 @@ const cheerio = require('cheerio');
 const daylightJSON = require('../daylight-savings.json');
 const britishSummerJSON = require('../british-summer-time.json');
 
+// Array of teams whose Wikipedia page doesn't redirect them with an '_FC' added to the url
 const teamExceptions = ['Borussia Dortmund'];
 
 // Classes
