@@ -114,8 +114,8 @@ class App extends Component {
                     : <span></span>
                   }
                 </div>
-                <div className="matchOneInfo">
-                  <div>
+                <div className="matchInfo matchOneInfo">
+                  <div className="matchTeams">
                     <span>{list.matches[0].team1} </span>
                     <span>vs. </span>
                     <span>{list.matches[0].team2} </span>
@@ -139,8 +139,8 @@ class App extends Component {
                     : <span></span>
                   }
                 </div>
-                <div className="matchTwoInfo">
-                  <div>
+                <div className="matchInfo matchTwoInfo">
+                  <div className="matchTeams">
                     <span>{list.matches[1].team1} </span>
                     <span>vs. </span>
                     <span>{list.matches[1].team2} </span>

@@ -37,10 +37,19 @@
 
 .matchCard {
   margin: 2%;
-
 }
 
 .vs {
   font-size: 50px;
   margin: 10px;
+  vertical-align: 50%;
+}
+
+.matchTeams {
+  font-size: 40px;
+  margin: 10px;
+}
+
+.matchInfo {
+  text-align: center;
 }
