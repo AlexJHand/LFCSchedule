@@ -194,7 +194,7 @@ router.get('/images', function (req, res) {
                 }
             })
             // Match info
-            $('.infobox').filter(function () {
+            $('#bodyContent').filter(function () {
                 let data = $(this);
 
                 let tempMatch1Image = data.find("img").eq(0).attr("src");
