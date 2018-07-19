@@ -146,8 +146,8 @@ class App extends Component {
                     <span>{list.matches[1].team2} </span>
                   </div>
                   
-                  <span>{list.matches[1].when} </span>
-                  <span>{list.matches[1].competition}</span>
+                  <div>{list.matches[1].when} </div>
+                  <div>{list.matches[1].competition}</div>
                 </div>
               </div>
             </div>
