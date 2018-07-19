@@ -121,8 +121,8 @@ class App extends Component {
                     <span>{list.matches[0].team2} </span>
                   </div>
                   
-                  <div>{list.matches[0].when} </div>
-                  <div>{list.matches[0].competition}</div>
+                  <div className="matchesWhen">{list.matches[0].when} </div>
+                  <div className="matchesComp">{list.matches[0].competition}</div>
                 </div>
               </div>
               <div key={list.matches[1].objId} className="match2 matchCard">
@@ -146,8 +146,8 @@ class App extends Component {
                     <span>{list.matches[1].team2} </span>
                   </div>
                   
-                  <div>{list.matches[1].when} </div>
-                  <div>{list.matches[1].competition}</div>
+                  <div className="matchesWhen">{list.matches[1].when} </div>
+                  <div className="matchesComp">{list.matches[1].competition}</div>
                 </div>
               </div>
             </div>
