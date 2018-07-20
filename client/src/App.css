@@ -45,11 +45,21 @@
   vertical-align: 50%;
 }
 
+.matchInfo {
+  text-align: center;
+}
+
 .matchTeams {
   font-size: 40px;
   margin: 10px;
 }
 
-.matchInfo {
-  text-align: center;
+.matchesWhen {
+  font-size: 20px;
+  margin: 10px;
+}
+
+.matchesComp {
+  font-size: 20px;
+  margin: 10px;
 }
