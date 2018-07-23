@@ -1,5 +1,5 @@
 .header {
-  height: 180px;
+  height: 160px;
   width: 100%;
   background-color: #DB0E13;
 }
@@ -37,6 +37,10 @@
 
 .matchCard {
   margin: 2%;
+}
+
+.matchImages {
+  height: 225px;
 }
 
 .vs {
