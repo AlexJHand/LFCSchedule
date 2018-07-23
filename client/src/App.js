@@ -13,6 +13,7 @@ class App extends Component {
       image3: null,
       image4: null
     };
+    this.displayCompetitionImage = this.displayCompetitionImage.bind(this);
     this.fetchNextMatches = this.fetchNextMatches.bind(this);
     this.fetchNextMatchesImages = this.fetchNextMatchesImages.bind(this);
     this.setNextMatches = this.setNextMatches.bind(this);
@@ -22,6 +23,25 @@ class App extends Component {
     console.log('In componentDidMount');
     
     this.fetchNextMatches()
+  }
+
+  displayCompetitionImage(comp) {
+    switch(comp) {
+      case 'Premier League':
+        return <img className="matchesCompLogo" src="./images/premier-league-logo-png-transparent.png" />;
+      case 'FA Cup':
+        return <img className="matchesCompLogo" src="./images/fa-cup.jpg" />;
+      case 'Carabao Cup':
+        return <img className="matchesCompLogo" src="./images/carabao-cup.jpeg" />;
+      case 'Champions League':
+        return <img className="matchesCompLogo" src="./images/champions-league.png" />;
+      case 'Europa League':
+        return <img className="matchesCompLogo" src="./images/Uefa_europa_league.png" />;
+      case 'International Champions Cup':
+        return <img className="matchesCompLogo" src="./images/international-champions-cup.jpg" />;
+      default:
+        return <span>Friendly</span>;
+    }
   }
 
   fetchNextMatches() {
@@ -121,7 +141,7 @@ class App extends Component {
                     <span>{list.matches[0].team2} </span>
                   </div>
                   
-                  <div className="matchesComp">{list.matches[0].competition}</div>
+                  <div className="matchesComp">{this.displayCompetitionImage(list.matches[0].competition)}</div>
                   <div className="matchesWhen">{list.matches[0].when} </div>
                 </div>
               </div>
@@ -146,7 +166,7 @@ class App extends Component {
                     <span>{list.matches[1].team2} </span>
                   </div>
                   
-                  <div className="matchesComp">{list.matches[1].competition}</div>
+                  <div className="matchesComp">{this.displayCompetitionImage(list.matches[0].competition)}</div>
                   <div className="matchesWhen">{list.matches[1].when} </div>
                 </div>
               </div>
