@@ -118,7 +118,7 @@ class App extends Component {
             <div className="headerTitle">Liverpool FC Dashboard</div>
           </div>
           <div className="card">
-            <div className="matchesHeader">Upcoming Matches</div>
+            <div className="matchesHeader"><span className="matchesHeaderSpan">Upcoming Matches</span></div>
             <div className="matches">
               <div key={list.matches[0].objId} className="match1 matchCard">
                 <div className="matchOneImages matchImages">
