@@ -1,5 +1,5 @@
 .header {
-  height: 160px;
+  height: 140px;
   width: 100%;
   background-color: #DB0E13;
 }
@@ -11,6 +11,7 @@
 }
 
 .headerImage {
+  height: 85%;
   margin-left: 15%;
   vertical-align: middle;
 }
@@ -18,7 +19,8 @@
 .headerTitle {
   display: inline-block;
   color: #fff;
-  font-size: 80px;
+  font-size: 70px;
+  margin-left: 60px;
   vertical-align: middle;
   font-family: 'Open Sans', sans-serif;
 }
