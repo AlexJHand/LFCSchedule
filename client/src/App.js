@@ -124,14 +124,14 @@ class App extends Component {
                 <div className="matchOneImages matchImages">
                   {image1
                     
-                    ? <img src={image1.imageUrl} alt={list.matches[0].team1} className="team1Logo"/>
+                    ? <img src={image1.imageUrl} alt={list.matches[0].team1} className="teamLogo"/>
                     : <span></span>
                   }
                   
                   <span class="vs">vs. </span>
                   
                   {image2
-                    ? <img src={image2.imageUrl} alt={list.matches[0].team2} />
+                    ? <img src={image2.imageUrl} alt={list.matches[0].team2} className="teamLogo" />
                     : <span></span>
                   }
                 </div>
@@ -149,14 +149,14 @@ class App extends Component {
               <div key={list.matches[1].objId} className="match2 matchCard">
                 <div className="matchTwoImages matchImages">
                   {image3
-                    ? <img src={image3.imageUrl} alt={list.matches[1].team1} />
+                    ? <img src={image3.imageUrl} alt={list.matches[1].team1} className="teamLogo"/>
                     : <span></span>
                   }
                   
                   <span class="vs">vs. </span>
                   
                   {image4
-                    ? <img src={image4.imageUrl} alt={list.matches[1].team1} />
+                    ? <img src={image4.imageUrl} alt={list.matches[1].team1} className="teamLogo"/>
                     : <span></span>
                   }
                 </div>

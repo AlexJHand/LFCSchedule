@@ -46,10 +46,15 @@
 
 .matchCard {
   margin: 2%;
+  width: 50%;
 }
 
 .matchImages {
   height: 225px;
+}
+
+.teamLogo {
+  height: 180px;
 }
 
 .vs {
