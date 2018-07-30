@@ -170,7 +170,7 @@ router.get('/images', function (req, res) {
     let tempMatchTeam1 = team.replace(' ', '_');
     let matchTeam1Url = 'https://en.wikipedia.org/wiki/' + tempMatchTeam1;
 
-    if (exception === true) {
+    if (exception === true || team.slice(-2) === 'FC') {
         console.log('match1Team1Url', matchTeam1Url);
     } else {
         matchTeam1Url += '_FC';

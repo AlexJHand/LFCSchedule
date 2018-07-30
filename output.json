@@ -1,16 +1,16 @@
 [
     {
-        "when": "16:05 Sat 28th July 2018",
-        "team1": "Manchester United",
+        "when": "12:00 Sat 4th August 2018",
+        "team1": "Napoli",
         "team2": "Liverpool",
-        "competition": "International Champions Cup",
+        "competition": "Friendly",
         "objId": 0,
         "team1Image": null
     },
     {
-        "when": "12:00 Sat 4th August 2018",
-        "team1": "Napoli",
-        "team2": "Liverpool",
+        "when": "13:30 Tue 7th August 2018",
+        "team1": "Liverpool",
+        "team2": "Torino FC",
         "competition": "Friendly",
         "objId": 1,
         "team1Image": null
