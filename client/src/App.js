@@ -128,7 +128,7 @@ class App extends Component {
                     : <span></span>
                   }
                   
-                  <span class="vs">vs. </span>
+                  <span className="vs">vs. </span>
                   
                   {image2
                     ? <img src={image2.imageUrl} alt={list.matches[0].team2} className="teamLogo" />
@@ -153,7 +153,7 @@ class App extends Component {
                     : <span></span>
                   }
                   
-                  <span class="vs">vs. </span>
+                  <span className="vs">vs. </span>
                   
                   {image4
                     ? <img src={image4.imageUrl} alt={list.matches[1].team1} className="teamLogo"/>
