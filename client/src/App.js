@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 
+import Header from './components/Header';
+import Match from './components/Match';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -113,10 +116,11 @@ class App extends Component {
     if (list.matches) {
       return (
         <div className="container">
-          <div className="header">
+          <Header />
+          {/* <div className="header">
             <span className="headerSpan"></span><img className="headerImage" src="http://b.thumbs.redditmedia.com/tOE7DOLFnhzUYjaDyNjt-aVCCFuLCNaKuqiKFQID0wI.png" />
             <div className="headerTitle">Liverpool FC Dashboard</div>
-          </div>
+          </div> */}
           <div className="card">
             <div className="matchesHeader"><span className="matchesHeaderSpan">Upcoming Matches</span></div>
             <div className="matches">
