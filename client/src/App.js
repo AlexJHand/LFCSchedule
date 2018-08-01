@@ -104,10 +104,10 @@ class App extends Component {
   render() {
     const {matches} = this.state;
     const list = (matches || []);
-    const image1 = this.state.image1;
-    const image2 = this.state.image2;
-    const image3 = this.state.image3;
-    const image4 = this.state.image4;
+    // const image1 = this.state.image1;
+    // const image2 = this.state.image2;
+    // const image3 = this.state.image3;
+    // const image4 = this.state.image4;
     
     console.log('matches in render', matches);
     console.log('this.state in render', this.state);
@@ -117,65 +117,17 @@ class App extends Component {
       return (
         <div className="container">
           <Header />
-          {/* <div className="header">
-            <span className="headerSpan"></span><img className="headerImage" src="http://b.thumbs.redditmedia.com/tOE7DOLFnhzUYjaDyNjt-aVCCFuLCNaKuqiKFQID0wI.png" />
-            <div className="headerTitle">Liverpool FC Dashboard</div>
-          </div> */}
           <div className="card">
             <div className="matchesHeader"><span className="matchesHeaderSpan">Upcoming Matches</span></div>
-            <div className="matches">
-              <div key={list.matches[0].objId} className="match1 matchCard">
-                <div className="matchOneImages matchImages">
-                  {image1
-                    
-                    ? <img src={image1.imageUrl} alt={list.matches[0].team1} className="teamLogo"/>
-                    : <span></span>
-                  }
-                  
-                  <span className="vs">vs. </span>
-                  
-                  {image2
-                    ? <img src={image2.imageUrl} alt={list.matches[0].team2} className="teamLogo" />
-                    : <span></span>
-                  }
-                </div>
-                <div className="matchInfo matchOneInfo">
-                  <div className="matchTeams">
-                    <span>{list.matches[0].team1} </span>
-                    <span>vs. </span>
-                    <span>{list.matches[0].team2} </span>
-                  </div>
-                  
-                  <div className="matchesComp">{this.displayCompetitionImage(list.matches[0].competition)}</div>
-                  <div className="matchesWhen">{list.matches[0].when} </div>
-                </div>
-              </div>
-              <div key={list.matches[1].objId} className="match2 matchCard">
-                <div className="matchTwoImages matchImages">
-                  {image3
-                    ? <img src={image3.imageUrl} alt={list.matches[1].team1} className="teamLogo"/>
-                    : <span></span>
-                  }
-                  
-                  <span className="vs">vs. </span>
-                  
-                  {image4
-                    ? <img src={image4.imageUrl} alt={list.matches[1].team1} className="teamLogo"/>
-                    : <span></span>
-                  }
-                </div>
-                <div className="matchInfo matchTwoInfo">
-                  <div className="matchTeams">
-                    <span>{list.matches[1].team1} </span>
-                    <span>vs. </span>
-                    <span>{list.matches[1].team2} </span>
-                  </div>
-                  
-                  <div className="matchesComp">{this.displayCompetitionImage(list.matches[0].competition)}</div>
-                  <div className="matchesWhen">{list.matches[1].when} </div>
-                </div>
-              </div>
-            </div>
+            <Match 
+              list={list} 
+              image1={this.state.image1} 
+              image2={this.state.image2} 
+              image3={this.state.image3} 
+              image4={this.state.image4} 
+              comp1={this.displayCompetitionImage(list.matches[0].competition)}
+              comp2={this.displayCompetitionImage(list.matches[1].competition)}
+            />
           </div>
         </div>
       );
