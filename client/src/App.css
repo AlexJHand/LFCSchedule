@@ -7,7 +7,11 @@
   height: 140px;
   width: 100%;
   margin-bottom: 10px;
-  background-color: #DB0E13;
+  /* background-color: #DB0E13; */
+  background-image: linear-gradient(
+    to right,
+    rgba(219, 14, 19, 0.5)),
+    url('./images/kop_background.png');
 }
 
 .headerSpan {
