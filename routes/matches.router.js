@@ -147,10 +147,6 @@ router.get('/', function (req, res) {
                 let match2 = new JsonClass(match2When, match2Team1, match2Team2, match2Competition, match2ObjId);
                 matches.push(match1, match2);
 
-                fs.writeFile('output.json', JSON.stringify(matches, null, 4), function (err) {
-                    console.log('File successfully written - check your project directory for the output.json file.');
-                });
-
                 res.send(matches);
             });
         } else {
