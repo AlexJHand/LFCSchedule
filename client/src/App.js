@@ -31,17 +31,17 @@ class App extends Component {
   displayCompetitionImage(comp) {
     switch(comp) {
       case 'Premier League':
-        return <img className="matchesCompLogo" src="./images/premier-league-logo-png-transparent.png" />;
+        return <img className="matchesCompLogo" src="./images/premier-league-logo-png-transparent.png" alt="Premier League logo"/>;
       case 'FA Cup':
-        return <img className="matchesCompLogo" src="./images/fa-cup.jpg" />;
+        return <img className="matchesCompLogo" src="./images/fa-cup.jpg" alt="FA Cup logo"/>;
       case 'Carabao Cup':
-        return <img className="matchesCompLogo" src="./images/carabao-cup.jpeg" />;
+        return <img className="matchesCompLogo" src="./images/carabao-cup.jpeg" alt="Carabao Cup logo"/>;
       case 'Champions League':
-        return <img className="matchesCompLogo" src="./images/champions-league.png" />;
+        return <img className="matchesCompLogo" src="./images/champions-league.png" alt="Champions League logo"/>;
       case 'Europa League':
-        return <img className="matchesCompLogo" src="./images/Uefa_europa_league.png" />;
+        return <img className="matchesCompLogo" src="./images/Uefa_europa_league.png" alt="Europa League logo"/>;
       case 'International Champions Cup':
-        return <img className="matchesCompLogo" src="./images/international-champions-cup.jpg" />;
+        return <img className="matchesCompLogo" src="./images/international-champions-cup.jpg" alt="International Champions Cup logo"/>;
       default:
         return <span>Friendly</span>;
     }
