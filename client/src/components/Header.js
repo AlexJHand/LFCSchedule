@@ -8,7 +8,7 @@ export default class Header extends React.Component {
                 <img className="headerImage" 
                      src="http://b.thumbs.redditmedia.com/tOE7DOLFnhzUYjaDyNjt-aVCCFuLCNaKuqiKFQID0wI.png" 
                      alt="The Kop"/>
-                <div className="headerTitle">Liverpool FC Dashboard</div>
+                <div className="headerTitle">Liverpool FC Scheduler</div>
             </div>
         )
     }
