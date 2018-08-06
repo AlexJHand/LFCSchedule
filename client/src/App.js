@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 
 import Header from './components/Header';
-import Match from './components/Match';
+import MatchesCard from './components/MatchesCard';
 
 class App extends Component {
   constructor(props) {
@@ -104,10 +104,6 @@ class App extends Component {
   render() {
     const {matches} = this.state;
     const list = (matches || []);
-    // const image1 = this.state.image1;
-    // const image2 = this.state.image2;
-    // const image3 = this.state.image3;
-    // const image4 = this.state.image4;
     
     console.log('matches in render', matches);
     console.log('this.state in render', this.state);
@@ -119,7 +115,7 @@ class App extends Component {
           <Header />
           <div className="card">
             <div className="matchesHeader"><span className="matchesHeaderSpan">Upcoming Matches</span></div>
-            <Match 
+            <MatchesCard 
               list={list} 
               image1={this.state.image1} 
               image2={this.state.image2} 

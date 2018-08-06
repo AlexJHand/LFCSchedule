@@ -1,6 +1,7 @@
 //Requires
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
 const request = require('request');
 const cheerio = require('cheerio');
 const app = express();
@@ -13,6 +14,10 @@ const goalsRouter = require('./routes/goals.router')
 const matchesRouter = require('./routes/matches.router');
 const tableRouter = require('./routes/table.router');
 const indexRouter = require('./routes/index.router');
+
+// if (process.env.NODE_ENV === 'production') {
+    // app.use(express.static(path.join(__dirname + 'build')));
+// }
 
 // Use Routers
 app.use('/goals', goalsRouter);
