@@ -44,6 +44,7 @@
   margin-bottom: 10px;
   background-color: #fff;
   font-family: 'Roboto', sans-serif;
+  box-shadow: 5px 5px 30px gray;
 }
 
 .matches {
