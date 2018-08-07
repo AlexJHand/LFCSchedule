@@ -14,10 +14,7 @@ const goalsRouter = require('./routes/goals.router')
 const matchesRouter = require('./routes/matches.router');
 const tableRouter = require('./routes/table.router');
 const indexRouter = require('./routes/index.router');
-
-// if (process.env.NODE_ENV === 'production') {
-    // app.use(express.static(path.join(__dirname + 'build')));
-// }
+app.use(express.static(path.join(__dirname, './client/build')));
 
 // Use Routers
 app.use('/goals', goalsRouter);
