@@ -5,9 +5,10 @@ const path = require('path');
 const request = require('request');
 const cheerio = require('cheerio');
 const app = express();
+require('dotenv').config();
 
 // Port
-const port = 4501;
+const port = process.env.PORT || 4501;
 
 // Require Routers
 const goalsRouter = require('./routes/goals.router')
