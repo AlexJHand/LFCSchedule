@@ -8,8 +8,7 @@ const app = express();
 require('dotenv').config();
 
 // Port
-// const port = process.env.PORT || 4501;
-const port = 4501;
+const port = process.env.PORT || 4501;
 
 // Require Routers
 const goalsRouter = require('./routes/goals.router')
@@ -18,9 +17,6 @@ const tableRouter = require('./routes/table.router');
 const indexRouter = require('./routes/index.router');
 app.use(express.static(path.join(__dirname, './client/build')));
 
-app.get('*', function (request, response) {
-    response.sendFile(__dirname + './client/build/index.html');
-});
 
 // Use Routers
 app.use('/goals', goalsRouter);
