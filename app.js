@@ -8,7 +8,8 @@ const app = express();
 require('dotenv').config();
 
 // Port
-const port = process.env.PORT || 4501;
+// const port = process.env.PORT || 4501;
+const port = 4501;
 
 // Require Routers
 const goalsRouter = require('./routes/goals.router')
