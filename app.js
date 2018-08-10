@@ -16,11 +16,11 @@ const goalsRouter = require('./routes/goals.router')
 const matchesRouter = require('./routes/matches.router');
 const tableRouter = require('./routes/table.router');
 const indexRouter = require('./routes/index.router');
-app.use(express.static(path.join(__dirname, './client/build')));
+// app.use(express.static(path.join(__dirname, './client/build')));
 
-app.get('*', (request, response) => {
-    response.sendFile(path.join(__dirname, './client/build/index.html'));
-});
+// app.get('*', (request, response) => {
+//     response.sendFile(path.join(__dirname, './client/build/index.html'));
+// });
 
 // Use Routers
 app.use('/goals', goalsRouter);
