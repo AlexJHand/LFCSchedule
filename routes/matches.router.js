@@ -63,6 +63,19 @@ convertToCentralTime = (liverpoolDateTime) => {
     liverpoolHours = liverpoolHours.split(":");
 
     let convertedHours = parseInt(liverpoolHours) - timeDifference;
+
+    let meridiem = '';
+    if (convertedHours >= 12) {
+        if (convertedHours > 12) {
+            convertedHours -= 12;
+        }
+        meridiem = "PM";
+    } else {
+        meridiem = "AM";
+    }
+
+    liverpoolSplit.unshift(meridiem);
+
     convertedHours = convertedHours.toString();
 
     liverpoolHours[0] = convertedHours;
