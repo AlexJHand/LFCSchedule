@@ -18,6 +18,7 @@ These instructions will get you a copy of the project up and running on your loc
 	- cheerio
 	- express
 	- fs
+	- jest
 	- request
 	- react
 	- react-dom
@@ -26,6 +27,8 @@ These instructions will get you a copy of the project up and running on your loc
 After the dependencies are installed, use npm start to start the server, which will run on port 3000.  
 
 ## Next Steps
+- Add some unit tests
+- Deploy to Heroku
 - Add league table
 - Get Premier League goal scorers list
 - Use react router to add goal scorers page
