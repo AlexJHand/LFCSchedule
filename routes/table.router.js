@@ -53,9 +53,6 @@ router.get('/', function (req, res) {
                         }
                     })
                 }
-                fs.writeFile('leagueTable.json', JSON.stringify(table, null, 4), function (err) {
-                    console.log('File successfully written - check your project directory for the output.json file.');
-                });
             })
         }
     })
