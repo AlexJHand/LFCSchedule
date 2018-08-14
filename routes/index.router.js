@@ -10,6 +10,7 @@ router.get('/', function (req, res) {
     // res.sendFile(path.join(__dirname, '../client/build/index.html'));
     // "proxy": "http://localhost:4501/",
     // "start": "concurrently \"npm run server\" \"cd client && npm start\"",
+    
 });
 
 // Exports
