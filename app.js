@@ -27,7 +27,7 @@ app.use(express.static('./client/build'));
 app.use('/goals', goalsRouter);
 app.use('/matches', matchesRouter);
 app.use('/table', tableRouter);
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 
 // Listener
 app.listen(port, function () {
