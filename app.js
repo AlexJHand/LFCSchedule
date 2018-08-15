@@ -8,26 +8,25 @@ const app = express();
 require('dotenv').config();
 
 // Port
-const port = process.env.PORT ||4501;
-// const port = 4501;
+// const port = process.env.PORT ||4501;
+const port = 4501;
 
 // Require Routers
 const goalsRouter = require('./routes/goals.router')
 const matchesRouter = require('./routes/matches.router');
 const tableRouter = require('./routes/table.router');
 const indexRouter = require('./routes/index.router');
-// app.use(express.static(path.join(__dirname, './client/build')));
-app.use(express.static('./client/build'));
 
-// app.get('*', (request, response) => {
-//     response.sendFile(path.join(__dirname, './client/build/index.html'));
-// });
+// Used for production build
+// app.use(express.static('./client/build'));
 
 // Use Routers
 app.use('/goals', goalsRouter);
 app.use('/matches', matchesRouter);
 app.use('/table', tableRouter);
-// app.use('/', indexRouter);
+
+// Used for development
+app.use('/', indexRouter);
 
 // Listener
 app.listen(port, function () {
