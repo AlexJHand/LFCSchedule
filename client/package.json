@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:4501/",
   "dependencies": {
+    "history": "^4.7.2",
     "jest": "^23.5.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
