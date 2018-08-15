@@ -1,4 +1,4 @@
-# LFC Schedule App
+# LFC Schedule App [Heroku link](https://lfc-scheduler.herokuapp.com/)
 As a huge fan of Liverpool Football Club living in the Minnesota, I've found that the accuracy of various sports websites and apps is spotty at best when it comes to converting kick-off times to my local time. Since the games are generally quite early in the morning, it's very annoying to wake up an hour too early or too late to watch the match on tv.
 
 This app goes [LiverpoolFC.com](http://www.liverpoolfc.com/match/2017-18/first-team/fixtures-and-results), and grabs the date and posted kick-off time of the next game, as well as who is playing, and what competition it is. The application then converts that time into Central time (taking Daylight Savings Time and British Summer Time into account, depending on the time of year). It also dynamically fetches the team logo from Wikipedia and displays all of the information on the page.
@@ -28,10 +28,8 @@ After the dependencies are installed, use npm start to start the server, which w
 
 ## Next Steps
 - Add some unit tests
-- Deploy to Heroku
-- Add league table
-- Get Premier League goal scorers list
-- Use react router to add goal scorers page
+- Add  league table
+- Add goal scorers page
 
 ## Author
 Alex Hand
