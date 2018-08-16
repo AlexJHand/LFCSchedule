@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom'; 
 // import axios from 'axios';
 import './App.css';
 
 import Header from './components/Header';
 import MatchesCard from './components/MatchesCard';
+// import Match from './components/Match';
 
 // class App extends Component {
 //   constructor(props) {
@@ -133,6 +135,14 @@ import MatchesCard from './components/MatchesCard';
 //   }
 // }
 
+const Main = () => (
+  <main>
+    <Switch>
+      <Route exact path='/' component={MatchesCard} />
+    </Switch>
+  </main>
+)
+
 class App extends Component {
   
 
@@ -144,7 +154,8 @@ class App extends Component {
         <Header />
         <div className="card">
           <div className="matchesHeader"><span className="matchesHeaderSpan">Upcoming Matches</span></div>
-          <MatchesCard />
+          {/* <MatchesCard /> */}
+          <Main />
         </div>
       </div>
     );
