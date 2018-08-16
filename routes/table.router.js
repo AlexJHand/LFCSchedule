@@ -48,16 +48,17 @@ router.get('/', function (req, res) {
                             points = data.find("td.points").text();
 
                             let team = new TeamClass(name, position, won, drawn, lost, gf, ga, gd, points)
-                            console.log("team", team);
+                            // console.log("team", team);
                             table.push(team);
                         }
                     })
                 }
+                res.send(table);
             })
         }
     })
 
-    res.send('Check your console.');
+    
 })
 
 module.exports = router;

@@ -5,6 +5,7 @@ import './App.css';
 
 import Header from './components/Header';
 import MatchesCard from './components/MatchesCard';
+import TableCard from './components/TableCard';
 // import Match from './components/Match';
 
 // class App extends Component {
@@ -139,6 +140,7 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path='/' component={MatchesCard} />
+      <Route path='/table' component={TableCard} />
     </Switch>
   </main>
 )
