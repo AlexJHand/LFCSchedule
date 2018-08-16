@@ -5,14 +5,10 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-import Header from './components/Header';
-
 ReactDOM.render(
     // <App />, 
     <BrowserRouter >
-        <Route path="/" component={Header}>
-        
-        </Route>
+        <App />
     </BrowserRouter>,
     document.getElementById('root')
 );
