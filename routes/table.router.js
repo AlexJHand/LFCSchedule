@@ -56,9 +56,7 @@ router.get('/', function (req, res) {
                 res.send(table);
             })
         }
-    })
-
-    
+    })    
 })
 
 module.exports = router;
