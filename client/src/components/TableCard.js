@@ -9,6 +9,28 @@ export default class TableCard extends React.Component {
         this.state = {
             table: null
         }
+        this.buildTable = this.buildTable.bind(this);
+        this.fetchTable = this.fetchTable.bind(this);
+    }
+
+    buildTable() {
+        console.log('In buildTable');
+        console.log('this.state.table', this.state.table);
+        
+        
+        let tableArray = [];
+
+        for (let i = 0; i < this.state.table.length; i++) {
+            
+            tableArray.push(<TableTeam
+                key={this.state.table[i].position}
+                position={this.state.table[i].position}
+                name={this.state.table[i].name}
+                points={this.state.table[i].points}
+            />)
+            
+        }
+        return tableArray;
     }
 
     componentDidMount() {
@@ -20,7 +42,7 @@ export default class TableCard extends React.Component {
         console.log('In fetchTable');
         axios(`table`)
             .then(table => this.setState({table: table.data}))
-            .catch(error => error);
+            .catch(error => error)
     }
 
     render () {
@@ -31,13 +53,15 @@ export default class TableCard extends React.Component {
         if (leagueTable.table) {
             return (
                 <table>
+                    <thead>
+                        <tr>
+                            <th>Position</th>
+                            <th>Team</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                        <TableTeam
-                            key={leagueTable.table[0].position}
-                            position={leagueTable.table[0].position}
-                            name={leagueTable.table[0].name}
-                            points={leagueTable.table[0].points}
-                        />
+                        {this.buildTable()}
                     </tbody>
                 </table>
             )
