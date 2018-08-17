@@ -7,7 +7,12 @@ const daylightJSON = require('../daylight-savings.json');
 const britishSummerJSON = require('../british-summer-time.json');
 
 // Array of teams whose Wikipedia page doesn't redirect them with an '_FC' added to the url
-const teamExceptions = ['Borussia Dortmund'];
+// const teamExceptions = ['Borussia Dortmund', 'Bournemouth'];
+const teamExceptions = [
+    {name: 'Borussia Dortmund', replacement: 'Borussia Dortmund', useSecondImage: false},
+    {name: 'Bournemouth', replacement: 'AFC Bournemouth', useSecondImage: true},
+    {name: 'Huddersfield Town', replacement: 'Huddersfield Town AFC', useSecondImage: true}
+];
 
 // Classes
 class JsonClass {
@@ -173,13 +178,27 @@ router.get('/images', function (req, res) {
     let imageKey = req.query.key;
     console.log("In images.", team);
 
-    let exception = teamExceptions.includes(team);
-    console.log('exception', exception);
+    let exception = false;
+    let secondImage = false;
+    for (let i = 0; i < teamExceptions.length; i++) {
+        if (teamExceptions[i].name === team) {
+            team = teamExceptions[i].replacement;
+            exception = true;
+            console.log('exception', exception);
+            if (teamExceptions[i].useSecondImage === true) {
+                secondImage = true;
+            }
+            break;
+        }   
+    }
 
     let tempMatchTeam1 = team.replace(' ', '_');
     let matchTeam1Url = 'https://en.wikipedia.org/wiki/' + tempMatchTeam1;
 
-    if (exception === true || team.slice(-2) === 'FC') {
+    if (exception === true) {
+        // matchTeam1Url = 
+        console.log('match1Team1Url', matchTeam1Url);
+    } else if (team.slice(-2) === 'FC') {
         console.log('match1Team1Url', matchTeam1Url);
     } else {
         matchTeam1Url += '_FC';
@@ -205,8 +224,13 @@ router.get('/images', function (req, res) {
             // Match info
             $('#bodyContent').filter(function () {
                 let data = $(this);
+                let tempMatch1Image = '';
 
-                let tempMatch1Image = data.find("img").eq(0).attr("src");
+                if (secondImage) {
+                    tempMatch1Image = data.find("img").eq(1).attr("src");
+                } else {
+                    tempMatch1Image = data.find("img").eq(0).attr("src");
+                }
                 match1Image = "https:" + tempMatch1Image;
             })
             imageObj = new Images(match1Image, imageKey);
