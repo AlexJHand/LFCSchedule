@@ -26,6 +26,13 @@ export default class TableCard extends React.Component {
                 key={this.state.table[i].position}
                 position={this.state.table[i].position}
                 name={this.state.table[i].name}
+                played={this.state.table[i].played}
+                won={this.state.table[i].won}
+                drawn={this.state.table[i].drawn}
+                lost={this.state.table[i].lost}
+                gf={this.state.table[i].gf}
+                ga={this.state.table[i].ga}
+                gd={this.state.table[i].gd}
                 points={this.state.table[i].points}
             />)
             
@@ -57,6 +64,13 @@ export default class TableCard extends React.Component {
                         <tr>
                             <th>Position</th>
                             <th>Team</th>
+                            <th>Played</th>
+                            <th>Won</th>
+                            <th>Drawn</th>
+                            <th>Lost</th>
+                            <th>GF</th>
+                            <th>GA</th>
+                            <th>GD</th>
                             <th>Points</th>
                         </tr>
                     </thead>

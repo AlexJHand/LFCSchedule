@@ -38,6 +38,7 @@ router.get('/', function (req, res) {
                         if (data.find("td").eq(4).text() != "") {
                             name = data.find("span.long").text();
                             position = data.find("span.value").text();
+                            played = data.find("td").eq(3).text();
                             won = data.find("td").eq(4).text();
                             drawn = data.find("td").eq(5).text();
                             lost = data.find("td").eq(6).text();
@@ -47,7 +48,7 @@ router.get('/', function (req, res) {
                             gd = gd.trim();
                             points = data.find("td.points").text();
 
-                            let team = new TeamClass(name, position, won, drawn, lost, gf, ga, gd, points)
+                            let team = new TeamClass(name, position, played, won, drawn, lost, gf, ga, gd, points)
                             // console.log("team", team);
                             table.push(team);
                         }
