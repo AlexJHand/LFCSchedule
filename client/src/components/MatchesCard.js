@@ -2,48 +2,15 @@ import React from 'react';
 import Match from './Match';
 import axios from 'axios';
 
-// export default class MatchesCard extends React.Component {
-
-//     render() {
-        
-//         return (
-//             <div className="matches">
-//                 <Match 
-//                     key={this.props.list.matches[0].objId}
-//                     list={this.props.list.matches[0]}
-//                     image1={this.props.image1}
-//                     image2={this.props.image2}
-//                     comp={this.props.comp1}
-//                 />
-//                 <Match 
-//                     key={this.props.list.matches[1].objId} 
-//                     list={this.props.list.matches[1]}
-//                     image1={this.props.image3}
-//                     image2={this.props.image4}
-//                     comp={this.props.comp2}
-//                 />
-//             </div>
-//         );
-//     }
-// }
-//////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////
-
 export default class MatchesCard extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            matches: null,
-            image1: null,
-            image2: null,
-            image3: null,
-            image4: null
+            matches: null
         };
         this.displayCompetitionImage = this.displayCompetitionImage.bind(this);
         this.fetchNextMatches = this.fetchNextMatches.bind(this);
-        this.fetchNextMatchesImages = this.fetchNextMatchesImages.bind(this);
         this.setNextMatches = this.setNextMatches.bind(this);
     }
 
@@ -78,57 +45,14 @@ export default class MatchesCard extends React.Component {
             .catch(error => error)
     }
 
-    fetchNextMatchesImages(matches) {
-        console.log("In fetchNextMatchesImages");
-
-        axios.get(`/matches/images`, {
-            params: {
-                team: matches[0].team1,
-                key: 0
-            }
-        })
-            .then(images => this.setState({ image1: images.data }))
-            .catch(error => error)
-            .then(
-                axios.get(`/matches/images`, {
-                    params: {
-                        team: matches[0].team2,
-                        key: 1
-                    }
-                })
-                    .then(images => this.setState({ image2: images.data }))
-                    .catch(error => error))
-            .then(
-                axios.get(`/matches/images`, {
-                    params: {
-                        team: matches[1].team1,
-                        key: 2
-                    }
-                })
-                    .then(images => this.setState({ image3: images.data }))
-                    .catch(error => error))
-            .then(
-                axios.get(`/matches/images`, {
-                    params: {
-                        team: matches[1].team2,
-                        key: 3
-                    }
-                })
-                    .then(images => this.setState({ image4: images.data }))
-                    .catch(error => error))
-    }
-
     setNextMatches(matches) {
-        this.fetchNextMatchesImages(matches)
         console.log('matches', matches);
         this.setState({ matches: { matches } })
         console.log("this.state", this.state);
-
     }
 
 
     render() {
-
         const { matches } = this.state;
         const list = (matches || []);
 
@@ -142,15 +66,11 @@ export default class MatchesCard extends React.Component {
                     <Match
                         key={list.matches[0].objId}
                         list={list.matches[0]}
-                        image1={this.state.image1}
-                        image2={this.state.image2}
                         comp={this.displayCompetitionImage(list.matches[0].competition)}
                     />
                     <Match
                         key={list.matches[1].objId}
                         list={list.matches[1]}
-                        image1={this.state.image3}
-                        image2={this.state.image4}
                         comp={this.displayCompetitionImage(list.matches[1].competition)}
                     />
                 </div>

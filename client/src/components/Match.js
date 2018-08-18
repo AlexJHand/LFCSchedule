@@ -1,4 +1,5 @@
 import React from 'react';
+import TeamImage from './TeamImage';
 
 export default class Match extends React.Component {
 
@@ -7,16 +8,16 @@ export default class Match extends React.Component {
         return (
             <div className="matchCard">
                 <div className="matchImages">
-                    {this.props.image1
+                    {this.props.list.team1
 
-                        ? <img src={this.props.image1.imageUrl} alt={this.props.list.team1} className="teamLogo" />
+                        ? <TeamImage key={this.props.team1} name={this.props.list.team1} />
                         : <span></span>
                     }
 
                     <span className="vs">vs. </span>
 
-                    {this.props.image2
-                        ? <img src={this.props.image2.imageUrl} alt={this.props.list.team2} className="teamLogo" />
+                    {this.props.list.team2
+                        ? <TeamImage key={this.props.team2} name={this.props.list.team2} />
                         : <span></span>
                     }
                 </div>
