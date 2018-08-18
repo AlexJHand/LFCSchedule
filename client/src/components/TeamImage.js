@@ -13,8 +13,6 @@ export default class TeamImage extends React.Component {
     }
 
     componentDidMount() {
-        console.log('In TeamImage componentDidMount');
-
         this.fetchTeamImage();
     }
 
@@ -24,8 +22,6 @@ export default class TeamImage extends React.Component {
                 team: this.props.name
             }
         }).then(logo => {
-            console.log('logo', logo);
-            
             this.setState({logo: logo.data})
         }).catch(error => error);
     }
