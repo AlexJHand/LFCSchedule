@@ -28,7 +28,6 @@ After the dependencies are installed, use npm start to start the server, which w
 
 ## Next Steps
 - Add some unit tests
-- Add  league table
 - Add goal scorers page
 
 ## Author
