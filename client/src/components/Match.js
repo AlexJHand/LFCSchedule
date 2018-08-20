@@ -10,7 +10,7 @@ export default class Match extends React.Component {
                 <div className="matchImages">
                     {this.props.list.team1
 
-                        ? <TeamImage key={this.props.team1} name={this.props.list.team1} />
+                        ? <TeamImage key={this.props.team1} name={this.props.list.team1}/>
                         : <span></span>
                     }
 

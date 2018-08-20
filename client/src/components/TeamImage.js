@@ -32,7 +32,7 @@ export default class TeamImage extends React.Component {
                 <img 
                     src={this.state.logo.imageUrl} 
                     alt={this.props.name}
-                    className="tableTeamLogo"
+                    className={this.props.className}
                 />
             )
         } else {

@@ -62,16 +62,17 @@ export default class TableCard extends React.Component {
                 <table>
                     <thead>
                         <tr>
-                            <th>Position</th>
-                            <th>Team</th>
-                            <th>Played</th>
+                            <th className='positionColumn'>Position</th>
+                            <th className='logoColumn'>Team</th>
+                            <th className='teamColumn'></th>
+                            <th className='playedColumn'>Played</th>
                             <th className='wonColumn'>Won</th>
-                            <th>Drawn</th>
-                            <th>Lost</th>
-                            <th>GF</th>
-                            <th>GA</th>
-                            <th>GD</th>
-                            <th>Points</th>
+                            <th className='drawnColumn'>Drawn</th>
+                            <th className='lostColumn'>Lost</th>
+                            <th className='gfColumn'>GF</th>
+                            <th className='gaColumn'>GA</th>
+                            <th className='gdColumn'>GD</th>
+                            <th className='pointsColumn'>Points</th>
                         </tr>
                     </thead>
                     <tbody>

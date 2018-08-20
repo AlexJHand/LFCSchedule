@@ -5,22 +5,23 @@ export default class TableTeam extends React.Component {
     render () {
         return (
             <tr className="tableTeam">
-                <td className='position'>{this.props.position}</td>
-                <td className='teamName'>
+                <td className='positionColumn'>{this.props.position}</td>
+                <td className='logoColumn'>
                     <TeamImage
                         key={this.props.position}
                         name={this.props.name}
+                        className='teamTableImage'
                     />
-                    {this.props.name}
                 </td>
-                <td className='played'>{this.props.played}</td>
-                <td className='won'>{this.props.won}</td>
-                <td className='drawn'>{this.props.drawn}</td>
-                <td className='lost'>{this.props.lost}</td>
-                <td className='gf'>{this.props.gf}</td>
-                <td className='ga'>{this.props.ga}</td>
-                <td className='gd'>{this.props.gd}</td>
-                <td className='points'>{this.props.points}</td>
+                <td className='teamColumn'>{this.props.name}</td>
+                <td className='playedColumn'>{this.props.played}</td>
+                <td className='wonColumn'>{this.props.won}</td>
+                <td className='drawnColumn'>{this.props.drawn}</td>
+                <td className='lostColumn'>{this.props.lost}</td>
+                <td className='gfColumn'>{this.props.gf}</td>
+                <td className='gaColumn'>{this.props.ga}</td>
+                <td className='gdColumn'>{this.props.gd}</td>
+                <td className='pointsColumn'>{this.props.points}</td>
             </tr>
         )
     }

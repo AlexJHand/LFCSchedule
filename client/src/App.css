@@ -73,10 +73,6 @@
   justify-content: center;
 }
 
-.teamLogo {
-  height: 180px;
-}
-
 .vs {
   font-size: 50px;
   margin: 80px 20px;
@@ -115,9 +111,28 @@ tr {
   margin-right: 10%;
 }
 
+.tableTeam {
+  height: 150px;
+  font-size: 25px;
+}
+
 td {
   text-align: center;
 }
+
+.teamColumn {
+  text-align: left;
+}
+
+.teamTableImage {
+  height: 100px;
+}
+
+.teamTableName {
+  display: inline-block;
+  position: absolute;
+}
+
 
 
 @media (max-width: 1000px) {

@@ -10,7 +10,7 @@ const britishSummerJSON = require('../british-summer-time.json');
 // const teamExceptions = ['Borussia Dortmund', 'Bournemouth'];
 const teamExceptions = [
     {name: 'Borussia Dortmund', replacement: 'Borussia Dortmund', useSecondImage: false},
-    {name: 'Bournemouth', replacement: 'AFC Bournemouth', useSecondImage: true},
+    {name: 'Bournemouth', replacement: 'AFC Bournemouth', useSecondImage: false},
     {name: 'Huddersfield Town', replacement: 'Huddersfield Town AFC', useSecondImage: true}
 ];
 
