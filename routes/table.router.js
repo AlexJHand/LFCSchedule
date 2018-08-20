@@ -7,9 +7,10 @@ const cheerio = require('cheerio');
 
 // Classes
 class TeamClass {
-    constructor(name, position, won, drawn, lost, gf, ga, gd, points) {
+    constructor(name, position, played, won, drawn, lost, gf, ga, gd, points) {
         this.name = name,
         this.position = position,
+        this.played = played,
         this.won = won,
         this.drawn = drawn,
         this.lost = lost,
@@ -38,18 +39,18 @@ router.get('/', function (req, res) {
                         if (data.find("td").eq(4).text() != "") {
                             name = data.find("span.long").text();
                             position = data.find("span.value").text();
-                            played = data.find("td").eq(3).text();
-                            won = data.find("td").eq(4).text();
-                            drawn = data.find("td").eq(5).text();
-                            lost = data.find("td").eq(6).text();
-                            gf = data.find("td").eq(7).text();
-                            ga = data.find("td").eq(8).text();
-                            gd = data.find("td").eq(9).text();
+                            played = data.find("td").eq(4).text();
+                            won = data.find("td").eq(5).text();
+                            drawn = data.find("td").eq(6).text();
+                            lost = data.find("td").eq(7).text();
+                            gf = data.find("td").eq(8).text();
+                            ga = data.find("td").eq(9).text();
+                            gd = data.find("td").eq(10).text();
                             gd = gd.trim();
                             points = data.find("td.points").text();
 
                             let team = new TeamClass(name, position, played, won, drawn, lost, gf, ga, gd, points)
-                            // console.log("team", team);
+                            console.log("team", team);
                             table.push(team);
                         }
                     })

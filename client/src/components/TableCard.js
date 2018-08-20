@@ -65,7 +65,7 @@ export default class TableCard extends React.Component {
                             <th>Position</th>
                             <th>Team</th>
                             <th>Played</th>
-                            <th>Won</th>
+                            <th className='wonColumn'>Won</th>
                             <th>Drawn</th>
                             <th>Lost</th>
                             <th>GF</th>
