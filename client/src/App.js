@@ -5,6 +5,7 @@ import './App.css';
 
 import Header from './components/Header';
 import MatchesCard from './components/MatchesCard';
+import Nav from './components/Nav';
 import TableCard from './components/TableCard';
 
 const Main = () => (
@@ -25,6 +26,7 @@ class App extends Component {
     return (
       <div className="container">
         <Header />
+        <Nav />
         <div className="card">
           <div className="matchesHeader"><span className="matchesHeaderSpan">Upcoming Matches</span></div>
           {/* <MatchesCard /> */}

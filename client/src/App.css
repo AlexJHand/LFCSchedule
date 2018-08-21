@@ -6,7 +6,6 @@
 .header {
   height: 140px;
   width: 100%;
-  margin-bottom: 10px;
   overflow: hidden;
   background-color: #DB0E13;
   background-image: linear-gradient(
@@ -34,6 +33,15 @@
   margin-left: 60px;
   vertical-align: middle;
   font-family: 'Open Sans', sans-serif;
+}
+
+.navBar {
+  width: 100%;
+  height: 40px;
+  margin-top: -16px;
+  margin-bottom: 10px;
+  background-color: #000000;
+  opacity: 0.75;
 }
 
 .card {
