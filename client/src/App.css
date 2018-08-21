@@ -103,6 +103,7 @@
 
 table {
   width: 100%;
+  border-collapse:collapse
 }
 
 tr {
@@ -122,6 +123,18 @@ td {
 
 .teamColumn {
   text-align: left;
+}
+
+.clSpot {
+  background-color: #C0C0C0;
+}
+
+.elSpot {
+  background-color: #D3D3D3;
+}
+
+.relSpot {
+  background-color: #D3D3D3;
 }
 
 .teamTableImage {
