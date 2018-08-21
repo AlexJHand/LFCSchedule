@@ -9,7 +9,9 @@ export default class TableTeam extends React.Component {
     }
 
     checkClass() {
-        if (parseInt(this.props.position) < 5) {
+        if (parseInt(this.props.position) === 1) {
+            return 'winnersSpot ';
+        } else if (parseInt(this.props.position) > 1 && parseInt(this.props.position) < 5) {
             return 'clSpot ';
         } else if (parseInt(this.props.position) === 5) {
             return 'elSpot ';

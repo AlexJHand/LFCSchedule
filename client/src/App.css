@@ -125,16 +125,20 @@ td {
   text-align: left;
 }
 
-.clSpot {
+.winnersSpot {
   background-color: #C0C0C0;
 }
 
-.elSpot {
+.clSpot {
   background-color: #D3D3D3;
 }
 
+.elSpot {
+  background-color: #DCDCDC;
+}
+
 .relSpot {
-  background-color: #D3D3D3;
+  background-color: #DCDCDC;
 }
 
 .teamTableImage {
