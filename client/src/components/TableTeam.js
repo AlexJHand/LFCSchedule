@@ -2,9 +2,27 @@ import React from 'react';
 import TeamImage from './TeamImage';
 
 export default class TableTeam extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.checkClass = this.checkClass.bind(this);
+    }
+
+    checkClass() {
+        if (parseInt(this.props.position) < 5) {
+            return 'clSpot ';
+        } else if (parseInt(this.props.position) === 5) {
+            return 'elSpot ';
+        } else if (parseInt(this.props.position) > 17) {
+            return 'relSpot ';
+        } else {
+            return "";
+        }
+    }
+    
     render () {
         return (
-            <tr className="tableTeam">
+            <tr className={this.checkClass() + "tableTeam"}>
                 <td className='positionColumn'>{this.props.position}</td>
                 <td className='logoColumn'>
                     <TeamImage
