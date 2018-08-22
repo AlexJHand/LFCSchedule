@@ -44,6 +44,19 @@
   opacity: 0.75;
 }
 
+li {
+  width: 100px;
+  height: 40px;
+  display: inline-block;
+  list-style: none;
+  text-align: center;
+}
+
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 .card {
   height: 100%;
   width: 80%;
