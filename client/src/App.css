@@ -38,21 +38,33 @@
 .navBar {
   width: 100%;
   height: 40px;
-  margin-top: -16px;
+  /* margin-top: -16px; */
   margin-bottom: 10px;
   background-color: #000000;
   opacity: 0.75;
+  /* display: table; */
+  display: flex;
+  flex-direction: row;
+  /* margin: auto; */
+}
+
+ul {
+  height: 40px;
 }
 
 li {
   width: 100px;
   height: 40px;
+  /* margin-bottom: -22px; */
+  /* display: table; */
   display: inline-block;
   list-style: none;
   text-align: center;
 }
 
 a {
+  /* display: table-cell;
+  vertical-align: middle; */
   color: #FFFFFF;
   text-decoration: none;
 }
