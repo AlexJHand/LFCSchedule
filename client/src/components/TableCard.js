@@ -59,26 +59,29 @@ export default class TableCard extends React.Component {
 
         if (leagueTable.table) {
             return (
-                <table>
-                    <thead>
-                        <tr>
-                            <th className='positionColumn'>Position</th>
-                            <th className='logoColumn'>Team</th>
-                            <th className='teamColumn'></th>
-                            <th className='playedColumn'>Played</th>
-                            <th className='wonColumn'>Won</th>
-                            <th className='drawnColumn'>Drawn</th>
-                            <th className='lostColumn'>Lost</th>
-                            <th className='gfColumn'>GF</th>
-                            <th className='gaColumn'>GA</th>
-                            <th className='gdColumn'>GD</th>
-                            <th className='pointsColumn'>Points</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.buildTable()}
-                    </tbody>
-                </table>
+                <div>
+                    <div className="cardHeader"><span className="cardHeaderSpan">League Table</span></div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th className='positionColumn'>Position</th>
+                                <th className='logoColumn'>Team</th>
+                                <th className='teamColumn'></th>
+                                <th className='playedColumn'>Played</th>
+                                <th className='wonColumn'>Won</th>
+                                <th className='drawnColumn'>Drawn</th>
+                                <th className='lostColumn'>Lost</th>
+                                <th className='gfColumn'>GF</th>
+                                <th className='gaColumn'>GA</th>
+                                <th className='gdColumn'>GD</th>
+                                <th className='pointsColumn'>Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.buildTable()}
+                        </tbody>
+                    </table>
+                </div>
             )
         } else {
             return <div></div>

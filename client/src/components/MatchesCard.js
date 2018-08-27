@@ -62,8 +62,9 @@ export default class MatchesCard extends React.Component {
 
         if (list.matches) {
             return (
-                <div className="matches">
-                    <div className="matchesHeader"><span className="matchesHeaderSpan">Upcoming Matches</span></div>
+                <div>
+                    <div className="cardHeader"><span className="cardHeaderSpan">Upcoming Matches</span></div>
+                    <div className="matches">
                     <Match
                         key={list.matches[0].objId}
                         list={list.matches[0]}
@@ -74,6 +75,7 @@ export default class MatchesCard extends React.Component {
                         list={list.matches[1]}
                         comp={this.displayCompetitionImage(list.matches[1].competition)}
                     />
+                    </div>
                 </div>
             );
         } else {
