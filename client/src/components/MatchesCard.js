@@ -63,6 +63,7 @@ export default class MatchesCard extends React.Component {
         if (list.matches) {
             return (
                 <div className="matches">
+                    <div className="matchesHeader"><span className="matchesHeaderSpan">Upcoming Matches</span></div>
                     <Match
                         key={list.matches[0].objId}
                         list={list.matches[0]}

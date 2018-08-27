@@ -28,8 +28,7 @@ class App extends Component {
         <Header />
         <Nav />
         <div className="card">
-          <div className="matchesHeader"><span className="matchesHeaderSpan">Upcoming Matches</span></div>
-          {/* <MatchesCard /> */}
+          {/* <div className="matchesHeader"><span className="matchesHeaderSpan">Upcoming Matches</span></div> */}
           <Main />
         </div>
       </div>
