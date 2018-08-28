@@ -146,6 +146,7 @@ tr {
   width: 70%;
   margin-left: 20%;
   margin-right: 10%;
+  border-bottom: 1px solid #D3D3D3;
 }
 
 .tableTeam {
@@ -162,19 +163,22 @@ td {
 }
 
 .winnersSpot {
-  background-color: #C0C0C0;
+  background-color: #CFCFCF;
 }
 
 .clSpot {
-  background-color: #D3D3D3;
+  /* background-color: #D3D3D3; */
+  background-color: #DCDCDC;
 }
 
 .elSpot {
-  background-color: #DCDCDC;
+  /* background-color: #DCDCDC; */
+  background-color: #ECEBEB;
 }
 
 .relSpot {
-  background-color: #DCDCDC;
+  /* background-color: #DCDCDC; */
+  background-color: #ECEBEB;
 }
 
 .teamTableImage {
