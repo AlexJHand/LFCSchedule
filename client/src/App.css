@@ -149,8 +149,8 @@ tr {
 }
 
 .tableTeam {
-  height: 150px;
-  font-size: 25px;
+  height: 50px;
+  font-size: 20px;
 }
 
 td {
@@ -178,7 +178,7 @@ td {
 }
 
 .teamTableImage {
-  height: 100px;
+  height: 40px;
 }
 
 .teamTableName {
