@@ -51,19 +51,25 @@
   display: table;
 }
 
-.linkDiv {
+a {
   width: 100px;
   height: 40px;
   display: table-cell;
   list-style: none;
   text-align: center;
   vertical-align: middle;
-}
-
-a {
   color: #FFFFFF;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
+}
+
+a:hover {
+  background-color: #C0C0C0;
+  color: #000000;
+}
+
+.selectedLink {
+  background-color: #DB0E13;
 }
 
 .card {
