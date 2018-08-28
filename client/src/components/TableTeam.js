@@ -9,13 +9,13 @@ export default class TableTeam extends React.Component {
     }
 
     checkClass() {
-        if (parseInt(this.props.position) === 1) {
+        if (parseInt(this.props.position, 10) === 1) {
             return 'winnersSpot ';
-        } else if (parseInt(this.props.position) > 1 && parseInt(this.props.position) < 5) {
+        } else if (parseInt(this.props.position, 10) > 1 && parseInt(this.props.position, 10) < 5) {
             return 'clSpot ';
-        } else if (parseInt(this.props.position) === 5) {
+        } else if (parseInt(this.props.position, 10) === 5) {
             return 'elSpot ';
-        } else if (parseInt(this.props.position) > 17) {
+        } else if (parseInt(this.props.position, 10) > 17) {
             return 'relSpot ';
         } else {
             return "";
