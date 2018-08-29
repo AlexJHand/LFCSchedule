@@ -36,7 +36,18 @@ class CleanSheetsClass {
 
 router.get('/goals', function(req, res) {
     url = 'https://www.premierleague.com/stats/top/players/goals';
-    
+
+    request(url, function(error, response, html) {
+        if (!error) {
+            let $ = cheerio.load(html);
+
+            $('.statsTable').filter(function() {
+                let data = $(this);
+
+                console.log('data', data);
+            })
+        }
+    })
 })
 
 // Exports 
