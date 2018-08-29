@@ -6,6 +6,7 @@ import './App.css';
 import Header from './components/Header';
 import MatchesCard from './components/MatchesCard';
 import Nav from './components/Nav';
+import StatsCard from './components/StatsCard';
 import TableCard from './components/TableCard';
 
 const Main = () => (
@@ -13,6 +14,7 @@ const Main = () => (
     <Switch>
       <Route exact path='/' component={MatchesCard} />
       <Route path='/table' component={TableCard} />
+      <Route path='/stats' component={StatsCard} />
     </Switch>
   </main>
 )
