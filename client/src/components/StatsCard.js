@@ -10,10 +10,12 @@ export default class StatsCard extends React.Component {
 
     componentDidMount() {
         console.log('In componentDidMount');
+
+        this.fetchGoalScorers();
     }
 
     fetchGoalScorers() {
-        axios(`/goals/goals`)
+        axios(`/stats/goals`)
             .then(scorers => console.log('scorers', scorers))
             .catch(error => error);
     }
