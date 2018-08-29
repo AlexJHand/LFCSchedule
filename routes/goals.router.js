@@ -34,8 +34,9 @@ class CleanSheetsClass {
     }
 }
 
-router.get('/', function(req, res) {
-    url = 'https://www.premierleague.com/stats';
+router.get('/goals', function(req, res) {
+    url = 'https://www.premierleague.com/stats/top/players/goals';
+    
 })
 
 // Exports 
