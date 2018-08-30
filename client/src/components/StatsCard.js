@@ -1,5 +1,18 @@
 import React from 'react';
 import axios from 'axios';
+import { Route, Switch } from 'react-router-dom'; 
+
+import GoalsTable from './GoalsTable';
+
+const StatsMain = () => (
+    <main>
+        <Switch>
+            <Route exact path='/' component={GoalsTable} />
+            {/* <Route path='/table' component={TableCard} />
+            <Route path='/stats' component={StatsCard} /> */}
+        </Switch>
+    </main>
+)
 
 export default class StatsCard extends React.Component {
     constructor(props) {
@@ -22,7 +35,7 @@ export default class StatsCard extends React.Component {
 
     render() {
         return (
-            <div></div>
+            <StatsMain />
         )
     }
 }
