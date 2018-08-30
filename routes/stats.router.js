@@ -34,29 +34,6 @@ class CleanSheetsClass {
     }
 }
 
-/*
-Arsenal
-Bournemouth
-Brighton
-Burnley
-Cardiff
-Chelsea
-Palace
-Everton
-Fulham
-Huddersfield
-Leicester
-Liverpool
-Man City
-United
-Newcastle
-Southampton
-Tottenham
-Watford
-West Ham
-Wolves
-*/
-
 const teamSwitch = (team) => ({
     "ARS": "Arsenal",
     "BOU": "Bournemouth",

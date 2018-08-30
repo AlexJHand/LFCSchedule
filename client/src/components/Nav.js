@@ -9,6 +9,7 @@ export default class Nav extends React.Component {
                 <div className='flexDiv'>
                     <NavLink exact={true} activeClassName='selectedLink' to='/'>Home</NavLink>
                     <NavLink activeClassName='selectedLink' to='/table'>Table</NavLink>
+                    <NavLink activeClassName='selectedLink' to='/stats'>Stats</NavLink>
                 </div>
             </div>
         )
