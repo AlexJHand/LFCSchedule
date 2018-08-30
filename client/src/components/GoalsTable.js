@@ -22,7 +22,7 @@ export default class GoalsTable extends React.Component {
 
         for (let i = 0; i < this.state.goalLeaders.length; i++) {
 
-            // tableArray.push(<TableTeam
+            // goalsTableArray.push(<TableTeam
             //     key={this.state.table[i].position}
             //     position={this.state.table[i].position}
             //     name={this.state.table[i].name}
@@ -40,10 +40,15 @@ export default class GoalsTable extends React.Component {
         return goalsTableArray;
     }
 
+    componentDidMount() {
+        console.log('In componentDidMount');
+        this.fetchGoalLeaders();
+    }
+
     fetchGoalLeaders() {
         console.log('In fetchGoalLeaders');
         axios(`/stats/goals`)
-            .then(goalLeaders => this.setState(goalLeaders: goalLeaders.data))
+            .then(goalLeaders => this.setState({goalLeaders: goalLeaders.data}))
             .catch(error => error);
     }
 }
