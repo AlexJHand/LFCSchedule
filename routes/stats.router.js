@@ -93,16 +93,28 @@ router.get('/goals', function(req, res) {
             $('.shsTable').filter(function () {
                 let data = $(this);
                 let scorersArray = [];
+                let rankCounter = 1
+                let previousGoals = null;
 
-                for (let i = 3; i < 23; i++) {
+                for (let i = 3; i < 23; i++, rankCounter++) {
                     $(`tr`).eq(i).filter(function () {
                         let data = $(this);
                         
-                        rank = null;
+                        
                         name = data.find("a").text().slice(0, -3);
                         team = data.find("a").eq(1).text();
                         nationality = null;
                         goals = data.find("td").eq(4).text();
+
+                        if (i === 3) {
+                            rank = rankCounter;
+                            previousGoals = goals;
+                        } else if (goals < previousGoals) {
+                            rank = rankCounter;
+                        } else {
+                            rank = "";
+                        }
+                        previousGoals = goals;
 
                         teamLong = teamSwitch(team);
 

@@ -7,7 +7,7 @@ import GoalsTable from './GoalsTable';
 const StatsMain = () => (
     <main>
         <Switch>
-            <Route exact path='/' component={GoalsTable} />
+            <Route exact path='/stats' component={GoalsTable} />
             {/* <Route path='/table' component={TableCard} />
             <Route path='/stats' component={StatsCard} /> */}
         </Switch>

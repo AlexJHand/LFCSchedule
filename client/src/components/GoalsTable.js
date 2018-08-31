@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import GoalScorers from './GoalScorers';
+
 export default class GoalsTable extends React.Component {
     constructor(props) {
         super(props);
@@ -22,19 +24,13 @@ export default class GoalsTable extends React.Component {
 
         for (let i = 0; i < this.state.goalLeaders.length; i++) {
 
-            // goalsTableArray.push(<TableTeam
-            //     key={this.state.table[i].position}
-            //     position={this.state.table[i].position}
-            //     name={this.state.table[i].name}
-            //     played={this.state.table[i].played}
-            //     won={this.state.table[i].won}
-            //     drawn={this.state.table[i].drawn}
-            //     lost={this.state.table[i].lost}
-            //     gf={this.state.table[i].gf}
-            //     ga={this.state.table[i].ga}
-            //     gd={this.state.table[i].gd}
-            //     points={this.state.table[i].points}
-            // />)
+            goalsTableArray.push(<GoalScorers
+                key={i}
+                rank={this.state.goalLeaders[i].rank}
+                name={this.state.goalLeaders[i].name}
+                team={this.state.goalLeaders[i].team}
+                goals={this.state.goalLeaders[i].goals}
+            />)
 
         }
         return goalsTableArray;
@@ -50,5 +46,34 @@ export default class GoalsTable extends React.Component {
         axios(`/stats/goals`)
             .then(goalLeaders => this.setState({goalLeaders: goalLeaders.data}))
             .catch(error => error);
+    }
+
+    render() {
+        const goalScorersTable = (this.state || []);
+        console.log('goalScorersTable', goalScorersTable);
+        
+
+        if (goalScorersTable.goalLeaders) {
+            return (
+                <div>
+                    <div className="cardHeader"><span className="cardHeaderSpan">Goal Leaders Table</span></div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th className='rankGoalsColumn'>Rank</th>
+                                <th className='nameGoalsColumn'>Name</th>
+                                <th className='teamGoalsColumn'>Team</th>
+                                <th className='goalsGoalsColumn'>Goals</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.buildGoalsTable()}
+                        </tbody>
+                    </table>
+                </div>
+            )
+        } else {
+            return <div></div>
+        }
     }
 }
