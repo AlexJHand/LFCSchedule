@@ -2,14 +2,15 @@ import React from 'react';
 import axios from 'axios';
 import { Route, Switch } from 'react-router-dom'; 
 
+import AssistsTable from './AssistsTable';
 import GoalsTable from './GoalsTable';
 
 const StatsMain = () => (
     <main>
         <Switch>
             <Route exact path='/stats' component={GoalsTable} />
-            {/* <Route path='/table' component={TableCard} />
-            <Route path='/stats' component={StatsCard} /> */}
+            <Route path='/stats/assists' component={AssistsTable} />
+            {/* <Route path='/stats' component={StatsCard} /> */}
         </Switch>
     </main>
 )
