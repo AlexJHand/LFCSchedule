@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import AssistsTable from './AssistsTable';
 import GoalsTable from './GoalsTable';
+import StatsNav from './StatsNav';
 
 const StatsMain = () => (
     <main>
@@ -36,7 +37,10 @@ export default class StatsCard extends React.Component {
 
     render() {
         return (
-            <StatsMain />
+            <div>
+                <StatsNav />
+                <StatsMain />
+            </div>
         )
     }
 }

@@ -51,7 +51,7 @@
   display: table;
 }
 
-a {
+.navBarLink {
   width: 100px;
   height: 40px;
   display: table-cell;
@@ -63,7 +63,7 @@ a {
   font-family: 'Roboto', sans-serif;
 }
 
-a:hover {
+.navBarLink:hover {
   background-color: #C0C0C0;
   color: #000000;
 }
