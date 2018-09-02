@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 
+import AssitsLeaders from './AssistLeaders';
+import AssistLeaders from './AssistLeaders';
+
 export default class AssistsTable extends React.Component {
     constructor(props) {
         super(props);
@@ -9,7 +12,29 @@ export default class AssistsTable extends React.Component {
             assistLeaders: null
         }
 
+        this.buildAssistsTable = this.buildAssistsTable.bind(this);
         this.fetchAssistLeaders = this.fetchAssistLeaders.bind(this);
+    }
+
+    buildAssistsTable() {
+        console.log('In buildAssistsTable');
+        console.log('this.state.assistLeaders', this.state.assistLeaders);
+
+
+        let assistsTableArray = [];
+
+        for (let i = 0; i < this.state.assistLeaders.length; i++) {
+
+            assistsTableArray.push(<AssistLeaders
+                key={i}
+                rank={this.state.assistLeaders[i].rank}
+                name={this.state.assistLeaders[i].name}
+                team={this.state.assistLeaders[i].team}
+                assists={this.state.assistLeaders[i].assists}
+            />)
+
+        }
+        return assistsTableArray;
     }
 
     componentDidMount() {
@@ -24,10 +49,31 @@ export default class AssistsTable extends React.Component {
     }
 
     render() {
-        console.log(this.state.assistLeaders);
-        
-        return (
-            <div></div>
-        )
+        const assistsTableArray = (this.state || []);
+        console.log('assistsTableArray', assistsTableArray);
+
+
+        if (assistsTableArray.assistLeaders) {
+            return (
+                <div>
+                    <div className="cardHeader"><span className="cardHeaderSpan">Assist Leaders Table</span></div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th className='rankGoalsColumn'>Rank</th>
+                                <th className='nameGoalsColumn'>Name</th>
+                                <th className='teamGoalsColumn'>Team</th>
+                                <th className='assistsGoalsColumn'>Assists</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.buildAssistsTable()}
+                        </tbody>
+                    </table>
+                </div>
+            )
+        } else {
+            return <div></div>
+        }
     }
 }
