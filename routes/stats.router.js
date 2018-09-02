@@ -65,20 +65,38 @@ router.get('/assists', function(req, res) {
             let $ = cheerio.load(html);
 
             // $('.statsTable').filter(function() {
-            $('.standard_tabelle').filter(function () {
+            $('.standard_tabelle').eq(0).filter(function () {
                 let data = $(this);
-                console.log('All data', data.text());
+                let assistsArray = [];
+                let rankCounter = 1;
+                let previousAssists = null;
 
-                for (let i = 0; i < data.find("tr").length; i++) {
+                for (let i = 2; i < 22; i++, rankCounter++) {
                     $(`tr`).eq(i).filter(function () {
                         let data = $(this);
-                        console.log("data", data.find("a").eq(0).text());
-                    })
-                    
+                        
+                        name = data.find("a").eq(0).text();
+                        team = data.find("a").eq(2).text();
+                        nationality = data.find("td").eq(3).text();
+                        assists = data.find("td").eq(5).text();
+
+                        if (i === 2) {
+                            rank = rankCounter;
+                        } else if (assists < previousAssists) {
+                            rank = rankCounter;
+                        } else {
+                            rank = "";
+                        }
+                        previousAssists = assists;
+
+                        let assistLeader = new AssistsClass(rank, name, team, nationality, assists);
+                        console.log(assistLeader);
+                        assistsArray.push(assistLeader);
+                    }) 
                 }
+                res.send(assistsArray);
             })
         }
-        res.sendStatus(200);
     })
 });
 
@@ -91,7 +109,6 @@ router.get('/goals', function(req, res) {
             let $ = cheerio.load(html);
 
             $('.shsTable').filter(function () {
-                let data = $(this);
                 let scorersArray = [];
                 let rankCounter = 1
                 let previousGoals = null;
@@ -99,7 +116,6 @@ router.get('/goals', function(req, res) {
                 for (let i = 3; i < 23; i++, rankCounter++) {
                     $(`tr`).eq(i).filter(function () {
                         let data = $(this);
-                        
                         
                         name = data.find("a").text().slice(0, -3);
                         team = data.find("a").eq(1).text();
