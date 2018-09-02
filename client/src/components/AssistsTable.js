@@ -52,7 +52,6 @@ export default class AssistsTable extends React.Component {
         const assistsTableArray = (this.state || []);
         console.log('assistsTableArray', assistsTableArray);
 
-
         if (assistsTableArray.assistLeaders) {
             return (
                 <div>

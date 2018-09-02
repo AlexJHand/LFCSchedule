@@ -64,7 +64,6 @@ router.get('/assists', function(req, res) {
         if (!error) {
             let $ = cheerio.load(html);
 
-            // $('.statsTable').filter(function() {
             $('.standard_tabelle').eq(0).filter(function () {
                 let data = $(this);
                 let assistsArray = [];
