@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-import AssitsLeaders from './AssistLeaders';
 import AssistLeaders from './AssistLeaders';
 
 export default class AssistsTable extends React.Component {
