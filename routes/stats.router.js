@@ -99,6 +99,12 @@ router.get('/assists', function(req, res) {
     })
 });
 
+router.get('/cleanSheets', function(req, res) {
+    console.log('In /cleanSheets');
+
+    res.sendStatus(200);
+})
+
 router.get('/goals', function(req, res) {
     console.log('In /goals');
     url = 'https://scores.nbcsports.com/epl/player_leaders.asp?category=202';

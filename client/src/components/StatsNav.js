@@ -8,7 +8,7 @@ export default class StatsNav extends React.Component {
                 <div className='flexDiv'>
                     <NavLink exact={true} activeClassName='selectedStatsLink' to='/stats'>Goals</NavLink>
                     <NavLink activeClassName='selectedStatsLink' to='/stats/assists'>Assists</NavLink>
-                    {/* <NavLink activeClassName='selectedLink' to='/stats'>Stats</NavLink> */}
+                    <NavLink activeClassName='selectedStatsLink' to='/stats/cleansheets'>Clean Sheets</NavLink>
                 </div>
             </div>
         )

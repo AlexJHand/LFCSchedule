@@ -21,8 +21,8 @@ const indexRouter = require('./routes/index.router');
 // app.use(express.static('./client/build'));
 
 // Use Routers
-app.use('/stats', statsRouter);
 app.use('/matches', matchesRouter);
+app.use('/stats', statsRouter);
 app.use('/table', tableRouter);
 
 // Used for development
