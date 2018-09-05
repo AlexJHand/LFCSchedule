@@ -139,7 +139,7 @@ router.get('/cleanSheets', function(req, res) {
                     })
                     
                 }
-                res.sendStatus(200);
+                res.send(keepersArray);
             })
         }
     })
