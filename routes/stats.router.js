@@ -102,7 +102,47 @@ router.get('/assists', function(req, res) {
 router.get('/cleanSheets', function(req, res) {
     console.log('In /cleanSheets');
 
-    res.sendStatus(200);
+    url = 'https://scores.nbcsports.com/epl/player_leaders.asp?category=108';
+
+    request(url, function(error, response, html) {
+        if (!error) {
+            let $ = cheerio.load(html);
+
+            $('.shsTable').filter(function() {
+                let keepersArray = [];
+                let rankCounter = 1;
+                let previousCleanSheets = null;
+
+                for (let i = 2; i < 12; i++, rankCounter++) {
+                    $(`tr`).eq(i).filter(function () {
+                        let data = $(this);
+                        name = data.find("a").text().slice(0, -3);;
+                        team = data.find("a").eq(1).text();
+                        nationality = null;
+                        cleanSheets = data.find("td").eq(12).text();
+
+                        if (i === 2) {
+                            rank = rankCounter;
+                            previousCleanSheets = cleanSheets;
+                        } else if (cleanSheets < previousCleanSheets) {
+                            rank = rankCounter;
+                        } else {
+                            rank = "";
+                        }
+                        previousCleanSheets = cleanSheets;
+
+                        teamLong = teamSwitch(team);
+
+                        let keeper = new CleanSheetsClass(rank, name, teamLong, nationality, cleanSheets);
+                        console.log("Keeper", keeper);
+                        keepersArray.push(keeper);
+                    })
+                    
+                }
+                res.sendStatus(200);
+            })
+        }
+    })
 })
 
 router.get('/goals', function(req, res) {
