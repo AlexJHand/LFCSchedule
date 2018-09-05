@@ -68,6 +68,14 @@
   color: #000000;
 }
 
+.statsNavLink {
+  width: 100px;
+  height: 40px; 
+  margin: 20px;
+  color: #000000;
+  text-decoration: none;
+}
+
 .selectedLink {
   background-color: #DB0E13;
 }

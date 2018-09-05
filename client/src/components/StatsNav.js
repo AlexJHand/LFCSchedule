@@ -6,9 +6,9 @@ export default class StatsNav extends React.Component {
         return (
             <div className='statsNav'>
                 <div className='flexDiv'>
-                    <NavLink exact={true} activeClassName='selectedStatsLink' to='/stats'>Goals</NavLink>
-                    <NavLink activeClassName='selectedStatsLink' to='/stats/assists'>Assists</NavLink>
-                    <NavLink activeClassName='selectedStatsLink' to='/stats/cleansheets'>Clean Sheets</NavLink>
+                    <NavLink  className='statsNavLink' exact={true} activeClassName='selectedStatsLink' to='/stats'>Goals</NavLink>
+                    <NavLink  className='statsNavLink' activeClassName='selectedStatsLink' to='/stats/assists'>Assists</NavLink>
+                    <NavLink  className='statsNavLink' activeClassName='selectedStatsLink' to='/stats/cleansheets'>Clean Sheets</NavLink>
                 </div>
             </div>
         )
