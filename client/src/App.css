@@ -45,6 +45,12 @@
   flex-direction: row;
 }
 
+.statsNav {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
 .flexDiv {
   height: 40px;
   margin-left: 20px;
@@ -69,16 +75,25 @@
 }
 
 .statsNavLink {
-  width: 100px;
+  width: 200px;
   height: 40px; 
   margin: 20px;
   font-size: 30px;
   color: #000000;
   text-decoration: none;
+  border-bottom: 10px solid #C0C0C0;
+}
+
+.statsNavLink:hover {
+  background-color: #ECEBEB;
 }
 
 .selectedLink {
   background-color: #DB0E13;
+}
+
+.selectedStatsLink {
+  border-bottom: 10px solid #DB0E13;
 }
 
 .card {
