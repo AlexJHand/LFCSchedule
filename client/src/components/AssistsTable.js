@@ -55,13 +55,13 @@ export default class AssistsTable extends React.Component {
             return (
                 <div>
                     <div className="cardHeader"><span className="cardHeaderSpan">Assist Leaders Table</span></div>
-                    <table>
+                    <table className="statsTable assistsTable">
                         <thead>
                             <tr>
-                                <th className='rankGoalsColumn'>Rank</th>
-                                <th className='nameGoalsColumn'>Name</th>
-                                <th className='teamGoalsColumn'>Team</th>
-                                <th className='assistsGoalsColumn'>Assists</th>
+                                <th className='rankAssistsColumn'>Rank</th>
+                                <th className='nameAssistsColumn'>Name</th>
+                                <th className='teamAssistsColumn'>Team</th>
+                                <th className='assistsScoredColumn'>Assists</th>
                             </tr>
                         </thead>
                         <tbody>

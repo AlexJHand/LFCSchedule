@@ -143,7 +143,7 @@ router.get('/', function (req, res) {
 
                 if (match1CompLogo === true) {
                     if (data.find("div").eq(5).attr("class") === "comp-logo") {
-                        match2Competition = data.find(".comp-logo").eq(0).attr("title");
+                        match2Competition = data.find(".comp-logo").eq(1).attr("title");
                         console.log('---> comp-logo');
                     } else {
                         match2Competition = data.find("span").eq(2).text();
@@ -151,7 +151,7 @@ router.get('/', function (req, res) {
                     }
                 } else {
                     if (data.find("div").eq(4).attr("class") === "comp-logo") {
-                        match2Competition = data.find(".comp-logo").eq(0).attr("title");
+                        match2Competition = data.find(".comp-logo").eq(1).attr("title");
                         console.log('---> comp-logo');
                     } else {
                         match2Competition = data.find("span").eq(3).text();
@@ -164,6 +164,9 @@ router.get('/', function (req, res) {
 
                 let match1 = new JsonClass(match1When, match1Team1, match1Team2, match1Competition, match1ObjId);
                 let match2 = new JsonClass(match2When, match2Team1, match2Team2, match2Competition, match2ObjId);
+
+                console.log('**************', match2);
+
                 matches.push(match1, match2);
 
                 res.send(matches);

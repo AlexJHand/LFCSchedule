@@ -55,13 +55,13 @@ export default class CleanSheetsTable extends React.Component {
             return (
                 <div>
                     <div className="cardHeader"><span className="cardHeaderSpan">Clean Sheet Leaders Table</span></div>
-                    <table>
+                    <table className="statsTable cleanSheetsTable">
                         <thead>
                             <tr>
-                                <th className='rankGoalsColumn'>Rank</th>
-                                <th className='nameGoalsColumn'>Name</th>
-                                <th className='teamGoalsColumn'>Team</th>
-                                <th className='cleanSheetsGoalsColumn'>Clean Sheets</th>
+                                <th className='rankSheetsColumn'>Rank</th>
+                                <th className='nameSheetsColumn'>Name</th>
+                                <th className='teamSheetsColumn'>Team</th>
+                                <th className='cleanSheetsScoredColumn'>Clean Sheets</th>
                             </tr>
                         </thead>
                         <tbody>

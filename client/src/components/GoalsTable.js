@@ -57,7 +57,7 @@ export default class GoalsTable extends React.Component {
             return (
                 <div>
                     <div className="cardHeader"><span className="cardHeaderSpan">Goal Leaders Table</span></div>
-                    <table>
+                    <table className="statsTable goalsTable">
                         <thead>
                             <tr>
                                 <th className='rankGoalsColumn'>Rank</th>
