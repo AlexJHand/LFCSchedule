@@ -228,10 +228,17 @@ td {
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 30px;
+  font-size: 25px;
 }
 
 .nameStatsColumn {
   text-align: left;
+  padding-left: 10%;
+}
+
+.teamStatsColumn {
+  text-align: left;
+  padding-left: 10%;
 }
 
 
