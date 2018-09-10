@@ -61,7 +61,7 @@ export default class TableCard extends React.Component {
             return (
                 <div>
                     <div className="cardHeader"><span className="cardHeaderSpan">League Table</span></div>
-                    <table>
+                    <table className='leagueTable'>
                         <thead>
                             <tr>
                                 <th className='positionColumn'>Position</th>

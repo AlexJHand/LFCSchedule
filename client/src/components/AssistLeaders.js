@@ -5,7 +5,7 @@ export default class AssistLeaders extends React.Component {
         return (
             <tr className="assistLeader">
                 <td className="assistsRank">{this.props.rank}</td>
-                <td className="assistsName">{this.props.name}</td>
+                <td className="nameStatsColumn">{this.props.name}</td>
                 <td className="assistsTeam">{this.props.team}</td>
                 <td className="assistsScored">{this.props.assists}</td>
             </tr>

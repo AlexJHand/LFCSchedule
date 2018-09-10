@@ -117,6 +117,9 @@
   height: 50px;
   padding-top: 20px;
   padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 .matchCard {
@@ -162,8 +165,9 @@
 }
 
 table {
-  width: 100%;
-  border-collapse:collapse
+  /* width: 100%; */
+  width: 90%;
+  border-collapse:collapse;
 }
 
 tr {
@@ -214,8 +218,20 @@ td {
   position: absolute;
 }
 
+.leagueTable {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 30px;
+}
+
 .statsTable {
-  padding: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 30px;
+}
+
+.nameStatsColumn {
+  text-align: left;
 }
 
 
