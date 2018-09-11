@@ -51,7 +51,29 @@ export default class MatchesCard extends React.Component {
         this.setState({
             timeZone: event.target.value
         })
-        console.log('Time zone selected', this.state.timeZone);
+        let selectedTZ = event.target.value;
+
+        // axios({
+        //     method: 'get',
+        //     url: '/matches/timeZone',
+        //     params: {
+        //         timeZone: selectedTZ
+        //     }
+        // })
+        //     .then(function (response) {
+        //         console.log(response);
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
+
+        axios.get(`/matches/timeZone`, {
+            params: {
+                timeZone: selectedTZ
+            }
+        })
+            .then(response => console.log(response))
+            .catch(error => error);
         
     }
 

@@ -177,8 +177,8 @@ router.get('/', function (req, res) {
     })
 });
 
-router.post('/', function(req, res) {
-    console.log('IN POST');
+router.get('/timeZone', function(req, res) {
+    console.log('IN POST', req.query.timeZone);
     res.sendStatus(200);
 })
 
