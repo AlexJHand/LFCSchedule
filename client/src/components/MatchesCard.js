@@ -7,10 +7,12 @@ export default class MatchesCard extends React.Component {
         super(props);
 
         this.state = {
-            matches: null
+            matches: null,
+            timeZone: 'central'
         };
         this.displayCompetitionImage = this.displayCompetitionImage.bind(this);
         this.fetchNextMatches = this.fetchNextMatches.bind(this);
+        this.selectTimeZone = this.selectTimeZone.bind(this);
         this.setNextMatches = this.setNextMatches.bind(this);
     }
 
@@ -45,6 +47,14 @@ export default class MatchesCard extends React.Component {
             .catch(error => error)
     }
 
+    selectTimeZone(event) {
+        this.setState({
+            timeZone: event.target.value
+        })
+        console.log('Time zone selected', this.state.timeZone);
+        
+    }
+
     setNextMatches(matches) {
         console.log('matches', matches);
         this.setState({ matches: { matches } })
@@ -63,7 +73,17 @@ export default class MatchesCard extends React.Component {
         if (list.matches) {
             return (
                 <div>
-                    <div className="cardHeader"><span className="cardHeaderSpan">Upcoming Matches</span></div>
+                    <div className="cardHeader">
+                        <span className="cardHeaderSpan">Upcoming Matches</span>
+                        <div>
+                            <select name="timeZone" id="timeZone" value={this.state.timeZone} onChange={this.selectTimeZone}>
+                                <option value="eastern">Eastern</option>
+                                <option value="central">Central</option>
+                                <option value="mountain">Mountain</option>
+                                <option value="pacific">Pacific</option>
+                            </select>    
+                        </div>    
+                    </div>
                     <div className="matches">
                     <Match
                         key={list.matches[0].objId}

@@ -177,6 +177,11 @@ router.get('/', function (req, res) {
     })
 });
 
+router.post('/', function(req, res) {
+    console.log('IN POST');
+    res.sendStatus(200);
+})
+
 router.get('/images', function (req, res) {
     let team = req.query.team;
     let imageKey = req.query.key;
