@@ -36,7 +36,6 @@ class Images {
 
 // function checkTimezones
 checkTimezones = (gameDate, gameMonth, gameYear, timeZone) => {
-    // let timeDifference = 0;
     console.log('**************', timeZone);
     switch (timeZone) {
         case 'eastern':
@@ -199,11 +198,6 @@ router.get('/', function (req, res) {
         }
     })
 });
-
-router.get('/timeZone', function(req, res) {
-    console.log('IN GET', req.query.timeZone);
-    res.sendStatus(200);
-})
 
 router.get('/images', function (req, res) {
     let team = req.query.team;
