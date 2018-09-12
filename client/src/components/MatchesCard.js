@@ -82,7 +82,7 @@ export default class MatchesCard extends React.Component {
                 <div>
                     <div className="cardHeader">
                         <span className="cardHeaderSpan">Upcoming Matches</span>
-                        <div>
+                        <div className="timeZoneSelect">
                             <select name="timeZone" id="timeZone" value={this.state.timeZone} onChange={this.selectTimeZone}>
                                 <option value="eastern">Eastern</option>
                                 <option value="central">Central</option>
