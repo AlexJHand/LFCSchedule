@@ -35,8 +35,27 @@ class Images {
 }
 
 // function checkTimezones
-checkTimezones = (gameDate, gameMonth, gameYear) => {
-    let timeDifference = 0;
+checkTimezones = (gameDate, gameMonth, gameYear, timeZone) => {
+    // let timeDifference = 0;
+    console.log('**************', timeZone);
+    switch (timeZone) {
+        case 'eastern':
+            timeDifference = 5;
+            break;
+        case 'central':
+            timeDifference = 6;
+            break;
+        case 'mountain':
+            timeDifference = 7;
+            break;
+        case 'pacific':
+            console.log('In pacific');
+            timeDifference = 8;
+            break;
+        default:
+            timeDifference = 6;
+            break;
+    }
     gameDate = parseInt(gameDate);
     gameYear = parseInt(gameYear);
 
@@ -46,25 +65,27 @@ checkTimezones = (gameDate, gameMonth, gameYear) => {
 
     if (gameMonth === 'March' && gameDate >= currentDaylight.startDay && gameDate < currentBritTime.startDay) {
         console.log('Daylight savings but not British Summer time');
-        timeDifference = 7;
+        // timeDifference = 7;
+        timeDifference += 1;
     } else if ((gameMonth === 'October' && gameDate >= currentBritTime.endDay) || (gameMonth === 'November' && gameDate < currentDaylight.endDay)) {
         console.log('Daylight savings but not British Summer time');
-        timeDifference = 7;
+        // timeDifference = 7;
+        timeDifference += 1;
     } else {
         console.log('Standard time difference.');
-        timeDifference = 6
     }
     return timeDifference;
 }
 
 
 // function convertToCentralTime(liverpoolDateTime) {
-convertToCentralTime = (liverpoolDateTime) => {
+convertToCentralTime = (liverpoolDateTime, timeZone) => {
     let liverpoolSplit = liverpoolDateTime.split(" ");
 
     let liverpoolHours = liverpoolSplit.shift();
 
-    let timeDifference = checkTimezones(liverpoolSplit[liverpoolSplit.length - 3], liverpoolSplit[liverpoolSplit.length - 2], liverpoolSplit[liverpoolSplit.length - 1]);
+    let timeDifference = checkTimezones(liverpoolSplit[liverpoolSplit.length - 3], liverpoolSplit[liverpoolSplit.length - 2], liverpoolSplit[liverpoolSplit.length - 1], timeZone);
+    console.log('*************** timeDifference', timeDifference);
 
     liverpoolHours = liverpoolHours.split(":");
 
@@ -100,6 +121,8 @@ convertToCentralTime = (liverpoolDateTime) => {
 }
 
 router.get('/', function (req, res) {
+    let timeZone = req.query.timeZone
+    console.log('IN GET', timeZone);
     url = 'http://www.liverpoolfc.com/match/2017-18/first-team/fixtures-and-results';
     let matches = []
 
@@ -114,7 +137,7 @@ router.get('/', function (req, res) {
                 match1When = data.find("p").first().text()
 
                 match1When = match1When.trim();
-                match1When = convertToCentralTime(match1When);
+                match1When = convertToCentralTime(match1When, timeZone);
 
                 match1Team1 = data.find("img").eq(0).attr("title");
                 match1Team2 = data.find("img").eq(1).attr("title");
@@ -136,7 +159,7 @@ router.get('/', function (req, res) {
                 match2When = data.find("p").last().text();
 
                 match2When = match2When.trim();
-                match2When = convertToCentralTime(match2When);
+                match2When = convertToCentralTime(match2When, timeZone);
 
                 match2Team1 = data.find("img").eq(2).attr("title");
                 match2Team2 = data.find("img").eq(3).attr("title");
@@ -178,7 +201,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/timeZone', function(req, res) {
-    console.log('IN POST', req.query.timeZone);
+    console.log('IN GET', req.query.timeZone);
     res.sendStatus(200);
 })
 
