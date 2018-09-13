@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 // import axios from 'axios';
 import './App.css';
 
+import Footer from './components/Footer';
 import Header from './components/Header';
 import MatchesCard from './components/MatchesCard';
 import Nav from './components/Nav';
@@ -32,6 +33,7 @@ class App extends Component {
         <div className="card">
           <Main />
         </div>
+        <Footer />
       </div>
     );
     
