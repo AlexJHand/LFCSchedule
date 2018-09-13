@@ -8,8 +8,8 @@ const app = express();
 require('dotenv').config();
 
 // Port
-// const port = process.env.PORT ||4501;
-const port = 4501;
+const port = process.env.PORT ||4501;
+// const port = 4501;
 
 // Require Routers
 const statsRouter = require('./routes/stats.router')
@@ -18,7 +18,7 @@ const tableRouter = require('./routes/table.router');
 const indexRouter = require('./routes/index.router');
 
 // Used for production build
-// app.use(express.static('./client/build'));
+app.use(express.static('./client/build'));
 
 // Use Routers
 app.use('/matches', matchesRouter);
