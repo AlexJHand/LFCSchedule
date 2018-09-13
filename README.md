@@ -8,6 +8,14 @@ In addition to match times, it also goes to [PremierLeague.com](https://www.prem
 ## Built With
 React.js, Node.js, Express.js, FS, Request, and Cheerio.
 
+## Screenshots
+
+![Image of Home Page](https://github.com/AlexJHand/LFCSchedule/blob/master/client/public/images/Home_Screenshot.png)
+
+![Image of League Table](https://github.com/AlexJHand/LFCSchedule/blob/master/client/public/images/Table_Screenshot.png)
+
+![Image of Goal Leaders Table](https://github.com/AlexJHand/LFCSchedule/blob/master/client/public/images/Goals_Screenshot.png)
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. Clone these files to your local machine and make sure to install the required dependencies via Node.js.
 
