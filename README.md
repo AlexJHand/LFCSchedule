@@ -18,17 +18,12 @@ These instructions will get you a copy of the project up and running on your loc
 	- cheerio
 	- express
 	- fs
-	- jest
 	- request
 	- react
-	- react-dom
+	- react-router-dom
 
 ### Installing
 After the dependencies are installed, use npm start to start the server, which will run on port 3000.  
-
-## Next Steps
-- Add some unit tests
-- Add goal scorers page
 
 ## Author
 Alex Hand
